@@ -41,6 +41,11 @@
       "name": "Blog",
       "icon": "newspaper",
       "url": "https://schoolmaker.com/blog"
+    },
+    {
+      "name": "Course creation guide",
+      "icon": "brain",
+      "url": "https://www.schoolmaker.com/course-creation-guide"
     }
   ],
   "navigation": [
