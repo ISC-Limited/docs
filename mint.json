@@ -33,9 +33,14 @@
   ],
   "anchors": [
     {
-      "name": "Documentation",
+      "name": "API Documentation",
       "icon": "book-open-cover",
       "url": "https://docs.schoolmaker.com"
+    },
+    {
+      "name": "Support Documentation",
+      "icon": "life-ring",
+      "url": "https://schoolmaker.helpscoutdocs.com/"
     },
     {
       "name": "Blog",
