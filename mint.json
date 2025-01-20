@@ -1,6 +1,6 @@
 {
-  "$schema": "https://mintlify.com/schema.json",
-  "name": "Starter Kit",
+  "$schema": "https://docs.schoolmaker.com/schema.json",
+  "name": "SchoolMaker API Documentation",
   "logo": {
     "dark": "/logo/dark.svg",
     "light": "/logo/light.svg"
@@ -35,7 +35,7 @@
     {
       "name": "Documentation",
       "icon": "book-open-cover",
-      "url": "https://api.schoolmaker.com/docs"
+      "url": "https://docs.schoolmaker.com"
     },
     {
       "name": "Blog",
