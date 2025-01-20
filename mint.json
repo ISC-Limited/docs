@@ -46,6 +46,11 @@
       "name": "Course creation guide",
       "icon": "brain",
       "url": "https://www.schoolmaker.com/course-creation-guide"
+    },
+    {
+      "name": "Integrations",
+      "icon": "cable",
+      "url": "https://www.schoolmaker.com/integrations"
     }
   ],
   "navigation": [
