@@ -1,33 +1,38 @@
----
-title: 'Introduction'
-description: 'Example section for showcasing API endpoints'
----
+# API V1 Documentation
 
-<Note>
-  If you're not looking to build API reference documentation, you can delete
-  this section by removing the api-reference folder.
-</Note>
-
-## Welcome
-
-There are two ways to build API documentation: [OpenAPI](https://mintlify.com/docs/api-playground/openapi/setup) and [MDX components](https://mintlify.com/docs/api-playground/mdx/configuration). For the starter kit, we are using the following OpenAPI specification.
-
-<Card
-  title="Plant Store Endpoints"
-  icon="leaf"
-  href="https://github.com/mintlify/starter/blob/main/api-reference/openapi.json"
->
-  View the OpenAPI specification file
-</Card>
+Welcome to the SchoolMaker API V1 documentation. This API allows you to interact with your school's data programmatically.
 
 ## Authentication
 
-All API endpoints are authenticated using Bearer tokens and picked up from the specification file.
+All API endpoints require authentication using a Bearer token. Include the token in the Authorization header:
+
+```bash
+Authorization: Bearer YOUR_TOKEN
+```
+
+## Base URL
+
+```
+https://schoolmaker.co/api/v1
+```
+
+## Response Format
+
+All responses are in JSON format. Successful responses will contain the requested data, while error responses will have this structure:
 
 ```json
-"security": [
-  {
-    "bearerAuth": []
-  }
-]
+{
+  "error": "Error message or array of error messages"
+}
 ```
+
+## HTTP Status Codes
+
+- 200: Success
+- 201: Created
+- 204: No Content
+- 400: Bad Request
+- 401: Unauthorized
+- 404: Not Found
+- 422: Unprocessable Entity
+- 500: Internal Server Error
