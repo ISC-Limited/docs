@@ -35,7 +35,7 @@
     {
       "name": "API Documentation",
       "icon": "book-open-cover",
-      "url": "https://docs.schoolmaker.com"
+      "url": "/api-reference/openapi.json"
     },
     {
       "name": "Support Documentation",
