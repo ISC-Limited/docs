@@ -35,7 +35,7 @@
     {
       "name": "API Documentation",
       "icon": "book-open-cover",
-      "url": "api-reference/openapi.json"
+      "url": "api-reference/introduction"
     },
     {
       "name": "Support Documentation",
@@ -85,11 +85,32 @@
       ]
     },
     {
-      "group": "Endpoint Examples",
+      "group": "Members",
       "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/delete"
+        "api-reference/endpoints/members/list",
+        "api-reference/endpoints/members/get"
+      ]
+    },
+    {
+      "group": "Offers",
+      "pages": [
+        "api-reference/endpoints/offers/add_drip_boost",
+        "api-reference/endpoints/offers/list",
+        "api-reference/endpoints/offers/accesses/create"
+      ]
+    },
+    {
+      "group": "Products",
+      "pages": [
+        "api-reference/endpoints/products/list"
+      ]
+    },
+    {
+      "group": "Webhooks",
+      "pages": [
+        "api-reference/endpoints/webhooks/list",
+        "api-reference/endpoints/webhooks/create",
+        "api-reference/endpoints/webhooks/delete"
       ]
     }
   ],

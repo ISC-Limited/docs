@@ -10,7 +10,7 @@
   },
   "servers": [
     {
-      "url": "http://sandbox.mintlify.com"
+      "url": "https://schoolmaker.co/api/v1"
     }
   ],
   "security": [
@@ -49,7 +49,7 @@
     },
     "/members/{id}": {
       "get": {
-        "summary": "Get member details",
+        "summary": "Get a member",
         "parameters": [
           {
             "name": "id",
@@ -99,7 +99,7 @@
     },
     "/offers/{id}/accesses": {
       "post": {
-        "summary": "Create or update offer access",
+        "summary": "Create or update offer member access",
         "parameters": [
           {
             "name": "id",
@@ -149,7 +149,7 @@
     },
     "/offers/{id}/accesses/add_drip_boost": {
       "post": {
-        "summary": "Add drip boost to offer access",
+        "summary": "Add drip boost to offer member access",
         "parameters": [
           {
             "name": "id",
