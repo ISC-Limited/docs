@@ -49,7 +49,7 @@
     },
     "/members/{id}": {
       "get": {
-        "summary": "Get a member",
+        "summary": "Get member details",
         "parameters": [
           {
             "name": "id",
@@ -69,7 +69,7 @@
     },
     "/products": {
       "get": {
-        "summary": "List products",
+        "summary": "List school programs",
         "parameters": [
           {
             "name": "published",
@@ -82,14 +82,14 @@
         ],
         "responses": {
           "200": {
-            "description": "List of products"
+            "description": "List of programs"
           }
         }
       }
     },
     "/offers": {
       "get": {
-        "summary": "List offers",
+        "summary": "List school offers",
         "responses": {
           "200": {
             "description": "List of offers"
