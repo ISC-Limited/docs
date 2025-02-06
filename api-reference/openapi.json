@@ -99,7 +99,7 @@
     },
     "/offers/{id}/accesses": {
       "post": {
-        "summary": "Create or update offer member access",
+        "summary": "Set offer member access",
         "parameters": [
           {
             "name": "id",
@@ -149,7 +149,7 @@
     },
     "/offers/{id}/accesses/add_drip_boost": {
       "post": {
-        "summary": "Add drip boost to offer member access",
+        "summary": "Set offer drip boost for a member",
         "parameters": [
           {
             "name": "id",
