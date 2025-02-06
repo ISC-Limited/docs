@@ -33,11 +33,6 @@
   ],
   "anchors": [
     {
-      "name": "API Documentation",
-      "icon": "book-open-cover",
-      "url": "api-reference/introduction"
-    },
-    {
       "name": "Support Documentation",
       "icon": "life-ring",
       "url": "https://schoolmaker.helpscoutdocs.com/"
