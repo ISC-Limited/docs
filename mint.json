@@ -27,11 +27,6 @@
   },
   "anchors": [
     {
-      "name": "API Documentation",
-      "icon": "book-open",
-      "url": "https://docs.schoolmaker.com/quickstart"
-    },
-    {
       "name": "Support Documentation",
       "icon": "life-ring",
       "url": "https://schoolmaker.helpscoutdocs.com/"
