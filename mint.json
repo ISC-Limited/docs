@@ -51,7 +51,8 @@
     {
       "group": "Get Started",
       "pages": [
-        "quickstart"
+        "quickstart",
+        "icon": "rocket",
       ]
     },
     {
