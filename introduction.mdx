@@ -11,36 +11,88 @@ description: "The SchoolMaker REST API lets you manage your members and track yo
 
 Start here if you want to use the SchoolMaker API to manage your members or track your school activity.
 
-The first step to world-class documentation is setting up your editing environments.
+<Accordion title="Authentication Steps" defaultOpen={false}>
+  To get started, you’ll need an API key. Go to `Settings` -> `Integration & API` in your SchoolMaker settings and scroll down to the API Section.
+
+  ![](/get_api_key.png)
+
+  You will be able to copy your API key by clicking on the clipboard button.
+
+  <Info>
+    When making an API call, you will need to add an Authorization header and set the API key as a Bearer token.
+  </Info>
+
+  Here’s an example Curl request (replace `YOUR_API_KEY` with your own API key):
+
+  ```
+  curl --request GET \
+    --url https://schoolmaker.co/api/v1/products \
+    --header 'Authorization: Bearer <YOUR_API_KEY>'
+  ```
+</Accordion>
+
+## Debugging
+
+Sometimes things go wrong. Here are some tips to help you debug your API requests.
+
+<Accordion title="New Accordion" defaultOpen="false">
+  If you are having trouble with the API, we recommend using a tool like [Postman](https://www.postman.com/) to test your requests.
+
+  1. Dealing with “Not Authenticated” Codes:
+
+     * Make sure you are using an API key from the SchoolMaker "Integrations & API" settings page and that you are including it in your requests.
+
+     * Your API key should be included in the “Authorization” header of your request, following the format “Authorization: Bearer \{YOUR\_API\_KEY}”.
+
+  2. Authorization Header:
+
+     * Ensure that you are correctly including the “Authorization” header in your requests. The value of this header should follow the format “Bearer \{YOUR\_API\_KEY}”.
+
+  3. Handling 400-level Responses:
+
+     * 400-level responses typically indicate that there was a problem with the request. The response body will contain more information about what went wrong, so be sure to check it for details.
+
+     * Check on your request type (GET, POST, PUT, DELETE) and ensure that you are using the correct one for the endpoint you are trying to access.
+
+  If you have followed these steps and are still experiencing issues, don’t hesitate to [reach out to the SchoolMaker team](https://app.loops.so/settings?page=support) for further assistance.
+</Accordion>
+
+## Members
+
+The SchoolMaker API allows you to get information about your members:
 
 <CardGroup cols={2}>
-  <Card title="Edit Your Docs" icon="pen-to-square" href="https://mintlify.com/docs/quickstart">
-    Get your docs set up locally for easy development
+  <Card title="Get member details" icon="user" href="https://docs.schoolmaker.com/api-reference/endpoints/members/list">
+    Get details from a member like their first name, last name, email, or creation date
   </Card>
 
-  <Card title="Preview Changes" icon="image" href="https://mintlify.com/docs/development">
-    Preview your changes before you push to make sure they're perfect
+  <Card title="Preview Changes" icon="users" href="https://docs.schoolmaker.com/api-reference/endpoints/members/get">
+    Get a list of your school's members. Note that this list has pagination
   </Card>
 </CardGroup>
 
-## Make it yours
+## Offers
 
-Update your docs to your brand and add valuable content for the best user conversion.
+Configure and list your school's offers.
 
-<CardGroup cols={2}>
-  <Card title="Customize Style" icon="palette" href="https://mintlify.com/docs/settings/global">
-    Customize your docs to your company's colors and brands
+<CardGroup cols={3}>
+  <Card title="Set offer drip boost for a member" icon="plus" href="https://docs.schoolmaker.com/api-reference/endpoints/offers/add_drip_boost">
+    Configure your member's drip boosts per offer
   </Card>
 
-  <Card title="Reference APIs" icon="code" href="https://mintlify.com/docs/api-playground/openapi">
-    Automatically generate endpoints from an OpenAPI spec
+  <Card title="List school offers" icon="box" href="https://docs.schoolmaker.com/api-reference/endpoints/offers/list">
+    List all of your school's offers and get their names, descriptions & prices
   </Card>
 
-  <Card title="Add Components" icon="screwdriver-wrench" href="https://mintlify.com/docs/content/components/accordions">
-    Build interactive features and designs to guide your users
-  </Card>
-
-  <Card title="Get Inspiration" icon="stars" href="https://mintlify.com/customers">
-    Check out our showcase of our favorite documentation
+  <Card title="Set offer member access" icon="box-circle-check" href="https://docs.schoolmaker.com/api-reference/endpoints/offers/accesses/create">
+    Create or update an offer access for a member
   </Card>
 </CardGroup>
+
+## Programs
+
+List school programs.
+
+<Card title="List school programs" icon="graduation-cap" href="https://docs.schoolmaker.com/api-reference/endpoints/products/list">
+  List all of your school's published programs with their IDs, names & descriptions.
+</Card>
