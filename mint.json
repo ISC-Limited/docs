@@ -1,5 +1,5 @@
 {
-  "$schema": "https://docs.schoolmaker.com/schema.json",
+  "$schema": "https://docs.schoolmaker.com/mint.json",
   "name": "SchoolMaker API Documentation",
   "logo": {
     "dark": "/logo/dark.svg",
@@ -21,6 +21,10 @@
       "url": "mailto:support@schoolmaker.co"
     }
   ],
+  "topAnchor": {
+    "name": "API Documentation",
+    "icon": "code"
+  }
   "topbarCtaButton": {
     "name": "Website",
     "url": "https://schoolmaker.com"
