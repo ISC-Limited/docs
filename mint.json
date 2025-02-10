@@ -1,5 +1,5 @@
 {
-  "$schema": "https://docs.schoolmaker.com/mint.json",
+  "$schema": "https://mintlify.com/schema.json",
   "name": "SchoolMaker API Documentation",
   "logo": {
     "dark": "/logo/dark.svg",
