@@ -68,7 +68,7 @@
     {
       "group": "Offers",
       "pages": [
-        "api-reference/endpoints/offers/add_drip_boost",
+        "api-reference/endpoints/offers/set_drip_boost",
         "api-reference/endpoints/offers/list",
         "api-reference/endpoints/offers/accesses/create"
       ]
@@ -82,7 +82,7 @@
     {
       "group": "Webhooks",
       "pages": [
-        "api-reference/endpoints/webhooks/list",
+        "api-reference/endpoints/webhooks/get",
         "api-reference/endpoints/webhooks/create",
         "api-reference/endpoints/webhooks/delete"
       ]
