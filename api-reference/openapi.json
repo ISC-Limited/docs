@@ -10,7 +10,12 @@
   },
   "servers": [
     {
-      "url": "https://schoolmaker.co/api/v1"
+      "url": "https://schoolmaker.co/api/v1",
+      "description": "Production API"
+    },
+    {
+      "url": "https://staging.schoolmaker.co/api/v1",
+      "description": "Sandbox API"
     }
   ],
   "security": [
@@ -66,6 +71,25 @@
           }
         }
       }
+    },
+    "admins": {
+      "get": {
+        "summary": "List admins & moderators of your school",
+        "responses": {
+          "200": {
+            "description": "List of admins & moderators of your school"
+          }
+        }
+      }
+    },
+    "/admins/{id}": {
+      "get": {
+        "summary": "Get admin/moderator details",
+        "responses": {
+          "200": {
+            "description": "Admin/moderator details"
+          }
+        }
     },
     "/products": {
       "get": {
@@ -147,7 +171,7 @@
         }
       }
     },
-    "/offers/{id}/accesses/add_drip_boost": {
+    "/offers/{id}/accesses/set_drip_boost": {
       "post": {
         "summary": "Set offer drip boost for a member",
         "parameters": [
@@ -190,6 +214,163 @@
           }
         }
       }
+    },
+    "coachings/types": {
+      "get": {
+        "summary": "List coaching types",
+        "responses": {
+          "200": {
+            "description": "List of coaching types"
+          }
+        }
+      }
+    },
+    "coachings/appointments": {
+      "post": {
+        "summary": "Create coaching appointment",
+        "parameters": [
+          {
+            "name": "type_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "date",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "duration_hours",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "duration_minutes",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "description",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "is_published",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "member_emails",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "user_emails",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Appointment created"
+          }
+        }
+    },
+    "/conversations/groups": {
+      "post": {
+        "summary": "Create conversation group",
+        "parameters": [
+          {
+            "name": "title",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "message",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "member_participants",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "user_participants",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": { 
+            "description": "Conversation group created"
+          }
+        }
+    },
+    "/conversations/groups": {
+      "post": {
+        "summary": "Create conversation group",
+        "responses": {
+          "201": {
+            "description": "Conversation group created"
+          }
+        }
     },
     "/webhooks": {
       "get": {
