@@ -31,6 +31,30 @@ Start here if you want to use the SchoolMaker API to manage your members or trac
   ```
 </Accordion>
 
+## Rate Limiting
+
+<Warning>
+  Exceeding rate limits may temporarily block your API access. If you hit the limit, you'll get a 429 Too Many Requests response. Handle limits carefully.
+</Warning>
+
+The SchoolMaker API uses rate limits to manage request volumes and ensure fair usage.
+
+<Accordion title="Rate Limiting Details" defaultOpen={false}>
+  **Rate Limit Headers**:
+
+  Each API response includes headers to help you track your usage:
+
+  * X-RateLimit-Limit: Maximum requests allowed per period.
+
+  * X-RateLimit-Remaining: Requests left in the current period.
+
+  * X-RateLimit-Reset: Time when the limit resets (epoch time).
+
+  **Rate Limiting Rules**:
+
+  General API Requests: 5 requests per second per IP.
+</Accordion>
+
 ## Base URL
 
 ```
