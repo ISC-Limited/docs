@@ -96,14 +96,6 @@
                       "description": "Timestamp when the member was last updated"
                     }
                   }
-                },
-                "example": {
-                  "id": "<string>",
-                  "email": "<string>",
-                  "first_name": "<string>",
-                  "last_name": "<string>",
-                  "created_at": "2023-11-13T08:51:31Z",
-                  "updated_at": "2025-02-07T14:29:36Z"
                 }
               }
             }
