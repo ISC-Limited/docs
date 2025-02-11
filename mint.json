@@ -62,7 +62,8 @@
       "group": "Members",
       "pages": [
         "api-reference/endpoints/members/list",
-        "api-reference/endpoints/members/get"
+        "api-reference/endpoints/members/get",
+        "api-reference/endpoints/members/accesses"
       ]
     },
     {
@@ -78,13 +79,15 @@
       "pages": [
         "api-reference/endpoints/offers/set_drip_boost",
         "api-reference/endpoints/offers/list",
-        "api-reference/endpoints/offers/accesses/create"
+        "api-reference/endpoints/offers/accesses/create",
+        "api-reference/endpoints/offers/get"
       ]
     },
     {
       "group": "Programs",
       "pages": [
-        "api-reference/endpoints/products/list"
+        "api-reference/endpoints/products/list",
+        "api-reference/endpoints/products/get"
       ]
     },
     {
