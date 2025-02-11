@@ -55,8 +55,7 @@
     {
       "group": "Get Started",
       "pages": [
-        "quickstart",
-        "rate-limit"
+        "quickstart"
       ]
     },
     {
