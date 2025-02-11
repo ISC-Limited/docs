@@ -62,7 +62,7 @@
           }
         ],
         "responses": {
-          "200: Success": {
+          "200": {
             "description": "Member details",
             "content": {
               "application/json": {
