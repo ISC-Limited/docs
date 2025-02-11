@@ -82,7 +82,7 @@
       ]
     },
     {
-      "group": "Products",
+      "group": "Programs",
       "pages": [
         "api-reference/endpoints/products/list"
       ]
