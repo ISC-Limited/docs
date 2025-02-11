@@ -111,6 +111,26 @@
         }
       }
     },
+    "/members/{id}/accesses": {
+      "get": {
+        "summary": "Get member accesses",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Member accesses"
+          }
+        }
+      }
+    },
     "/admins": {
       "get": {
         "summary": "List admins & moderators of your school",
