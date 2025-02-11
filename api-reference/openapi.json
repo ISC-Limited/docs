@@ -63,7 +63,50 @@
         ],
         "responses": {
           "200": {
-            "description": "Member details"
+            "description": "Member details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "Unique identifier of the member"
+                    },
+                    "email": {
+                      "type": "string",
+                      "description": "Email address of the member"
+                    },
+                    "first_name": {
+                      "type": "string",
+                      "description": "First name of the member"
+                    },
+                    "last_name": {
+                      "type": "string",
+                      "description": "Last name of the member"
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Timestamp when the member was created"
+                    },
+                    "updated_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Timestamp when the member was last updated"
+                    }
+                  }
+                },
+                "example": {
+                  "id": "0ae24882-ddff-4e46-8bc8-fbe8a22d543d",
+                  "email": "example@gmail.com",
+                  "first_name": "John",
+                  "last_name": "Doe",
+                  "created_at": "2023-11-13T08:51:31Z",
+                  "updated_at": "2025-02-07T14:29:36Z"
+                }
+              }
+            }
           }
         }
       }
