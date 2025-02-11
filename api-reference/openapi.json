@@ -12,7 +12,7 @@
     {
       "url": "https://schoolmaker.co/api/v1",
       "description": "Production API"
-    },
+    }
   ],
   "security": [
     {
