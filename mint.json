@@ -66,6 +66,14 @@
       ]
     },
     {
+
+      "group": "Admins & Moderators",
+      "pages": [
+        "api-reference/endpoints/admins/list",
+        "api-reference/endpoints/admins/get"
+      ]
+    },
+    {
       "group": "Offers",
       "pages": [
         "api-reference/endpoints/offers/set_drip_boost",
@@ -77,6 +85,19 @@
       "group": "Products",
       "pages": [
         "api-reference/endpoints/products/list"
+      ]
+    },
+    {
+      "group": "Coachings",
+      "pages": [
+        "api-reference/endpoints/coachings/appointments/create",
+        "api-reference/endpoints/coachings/types/list"
+      ]
+    },
+    {
+      "group": "Conversations",
+      "pages": [
+        "api-reference/endpoints/conversations/groups/create"
       ]
     },
     {
