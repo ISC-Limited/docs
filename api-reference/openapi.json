@@ -98,10 +98,10 @@
                   }
                 },
                 "example": {
-                  "id": "0ae24882-ddff-4e46-8bc8-fbe8a22d543d",
-                  "email": "example@gmail.com",
-                  "first_name": "John",
-                  "last_name": "Doe",
+                  "id": "<string>",
+                  "email": "<string>",
+                  "first_name": "<string>",
+                  "last_name": "<string>",
                   "created_at": "2023-11-13T08:51:31Z",
                   "updated_at": "2025-02-07T14:29:36Z"
                 }
