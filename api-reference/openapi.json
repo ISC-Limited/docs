@@ -31,19 +31,44 @@
               "type": "integer",
               "default": 1
             }
-          },
-          {
-            "name": "per_page",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "default": 25
-            }
           }
         ],
         "responses": {
           "200": {
-            "description": "List of members with pagination"
+            "description": "List of members with pagination",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "members": {
+                      "type": "array",
+                      "description": "25 members per page.",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": { "type": "string" },
+                          "email": { "type": "string" },
+                          "first_name": { "type": "string" },
+                          "last_name": { "type": "string" },
+                          "last_seen_at": { "type": "string", "format": "date-time" },
+                          "created_at": { "type": "string", "format": "date-time" },
+                          "updated_at": { "type": "string", "format": "date-time" }
+                        }
+                      }
+                    },
+                    "pagination": {
+                      "type": "object",
+                      "properties": {
+                        "total_count": { "type": "integer" },
+                        "total_pages": { "type": "integer" },
+                        "current_page": { "type": "integer" }
+                      }
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -85,6 +110,11 @@
                       "type": "string",
                       "description": "Last name of the member"
                     },
+                    "last_seen_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Timestamp when the member was last seen"
+                    },
                     "created_at": {
                       "type": "string",
                       "format": "date-time",
@@ -118,7 +148,39 @@
         ],
         "responses": {
           "200": {
-            "description": "Member accesses"
+            "description": "Member accesses",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "accesses": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": { "type": "string" },
+                          "offer_id": { "type": "string" },
+                          "price": {
+                            "type": "object",
+                            "properties": {
+                              "id": { "type": "string", "nullable": true },
+                              "amount": { "type": "number", "nullable": true },
+                              "currency": { "type": "string", "nullable": true },
+                              "price_type": { "type": "string", "nullable": true },
+                              "recurring_interval": { "type": "string", "nullable": true },
+                              "recurring_interval_count": { "type": "integer", "nullable": true }
+                            }
+                          },
+                          "is_active": { "type": "boolean" },
+                          "access_created_at": { "type": "string", "format": "date-time" }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -128,7 +190,36 @@
         "summary": "List admins & moderators of your school",
         "responses": {
           "200": {
-            "description": "List of admins & moderators of your school"
+            "description": "List of admins & moderators of your school",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "admins": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": { "type": "string" },
+                          "email": { "type": "string" },
+                          "first_name": { "type": "string" },
+                          "last_name": { "type": "string" },
+                          "role": { "type": "string" },
+                          "is_active": { "type": "boolean" },
+                          "is_banned": { "type": "boolean" },
+                          "time_zone": { "type": "string" },
+                          "last_seen_at": { "type": "string", "format": "date-time" },
+                          "created_at": { "type": "string", "format": "date-time" },
+                          "updated_at": { "type": "string", "format": "date-time" },
+                          "is_school_owner": { "type": "boolean" }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -148,7 +239,28 @@
         ],
         "responses": {
           "200": {
-            "description": "Admin/moderator details"
+            "description": "Admin/moderator details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": { "type": "string" },
+                    "email": { "type": "string" },
+                    "first_name": { "type": "string" },
+                    "last_name": { "type": "string" },
+                    "role": { "type": "string" },
+                    "is_active": { "type": "boolean" },
+                    "is_banned": { "type": "boolean" },
+                    "time_zone": { "type": "string" },
+                    "last_seen_at": { "type": "string", "format": "date-time" },
+                    "created_at": { "type": "string", "format": "date-time" },
+                    "updated_at": { "type": "string", "format": "date-time" },
+                    "is_school_owner": { "type": "boolean" }
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -157,14 +269,6 @@
       "get": {
         "summary": "List school programs",
         "parameters": [
-          {
-            "name": "published",
-            "in": "query",
-            "schema": {
-              "type": "boolean",
-              "default": true
-            }
-          },
           {
             "name": "member_id",
             "in": "query",
@@ -186,22 +290,25 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "id": { "type": "string" },
-                    "name": { "type": "string" },
-                    "description": { "type": "string" },
-                    "is_published": { "type": "boolean" },
-                    "position": { "type": "integer" },
-                    "created_at": { "type": "string", "format": "date-time" },
-                    "updated_at": { "type": "string", "format": "date-time" },
-                    "progression": {
-                      "type": "object",
-                      "properties": {
-                        "total_steps": { "type": "integer" },
-                        "completed_steps": { "type": "integer" },
-                        "progression_rate": { "type": "number" },
-                        "time_spent": { "type": "string" }
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": { "type": "string" },
+                      "name": { "type": "string" },
+                      "description": { "type": "string" },
+                      "is_published": { "type": "boolean" },
+                      "position": { "type": "integer" },
+                      "created_at": { "type": "string", "format": "date-time" },
+                      "updated_at": { "type": "string", "format": "date-time" },
+                      "progression": {
+                        "type": "object",
+                        "properties": {
+                          "total_steps": { "type": "integer" },
+                          "completed_steps": { "type": "integer" },
+                          "progression_rate": { "type": "number" },
+                          "time_spent": { "type": "string" }
+                        }
                       }
                     }
                   }
@@ -276,7 +383,39 @@
         "summary": "List school offers",
         "responses": {
           "200": {
-            "description": "List of offers"
+            "description": "List of offers",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "offers": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": { "type": "string" },
+                          "name": { "type": "string" },
+                          "description": { "type": "string" },
+                          "prices": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "id": { "type": "string" },
+                                "amount": { "type": "number" },
+                                "currency": { "type": "string" }
+                              }
+                            }
+                          },
+                          "created_at": { "type": "string", "format": "date-time" }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -286,7 +425,31 @@
         "summary": "Get Offer Details",
         "responses": {
           "200": {
-            "description": "Get Offer Details"
+            "description": "Get Offer Details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": { "type": "string" },
+                    "name": { "type": "string" },
+                    "description": { "type": "string" },
+                    "prices": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": { "type": "string" },
+                          "amount": { "type": "number" },
+                          "currency": { "type": "string" }
+                        }
+                      }
+                    },
+                    "created_at": { "type": "string", "format": "date-time" }
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -336,7 +499,23 @@
         },
         "responses": {
           "201": {
-            "description": "Access created or updated"
+            "description": "Access created or updated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": { "type": "string", "description": "Access ID" },
+                    "member_id": { "type": "string", "description": "Member ID" },
+                    "email": { "type": "string", "description": "Member email" },
+                    "is_active": { "type": "boolean", "description": "Access active status" },
+                    "offer_name": { "type": "string", "description": "Offer name" },
+                    "offer_id": { "type": "string", "description": "Offer ID" },
+                    "created_at": { "type": "string", "format": "date-time", "description": "Creation timestamp" }
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -380,7 +559,22 @@
         },
         "responses": {
           "200": {
-            "description": "Drip boost added"
+            "description": "Drip boost added",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "access_id": { "type": "string", "description": "Access ID" },
+                    "offer_name": { "type": "string", "description": "Offer name" },
+                    "offer_id": { "type": "string", "description": "Offer ID" },
+                    "member_id": { "type": "string", "description": "Member ID" },
+                    "email": { "type": "string", "description": "Member email" },
+                    "drip": { "type": "integer", "description": "Drip boost value" }
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -390,7 +584,38 @@
         "summary": "List coaching types",
         "responses": {
           "200": {
-            "description": "List of coaching types"
+            "description": "List of coaching types",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": { "type": "string" },
+                      "name": { "type": "string" },
+                      "unit": { "type": "string" },
+                      "is_published": { "type": "boolean" },
+                      "calendar_embed_code": { "type": "string" },
+                      "created_at": { "type": "string", "format": "date-time" },
+                      "updated_at": { "type": "string", "format": "date-time" },
+                      "description": { "type": "string" },
+                      "coaches": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": { "type": "string" },
+                            "email": { "type": "string" },
+                            "name": { "type": "string" }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -398,89 +623,78 @@
     "/coachings/appointments": {
       "post": {
         "summary": "Create coaching appointment",
-        "parameters": [
-          {
-            "name": "type_id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "date",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "duration_hours",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "type": "integer"
-            }
-          },
-          {
-            "name": "duration_minutes",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "type": "integer"
-            }
-          },
-          {
-            "name": "name",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "description",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "is_published",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "type": "boolean"
-            }
-          },
-          {
-            "name": "member_emails",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            }
-          },
-          {
-            "name": "user_emails",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string"
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "type_id": {
+                    "type": "string"
+                  },
+                  "date": {
+                    "type": "string"
+                  },
+                  "duration_hours": {
+                    "type": "integer"
+                  },
+                  "duration_minutes": {
+                    "type": "integer"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "is_published": {
+                    "type": "boolean"
+                  },
+                  "member_emails": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "user_emails": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "required": [
+                  "type_id",
+                  "date",
+                  "duration_hours",
+                  "duration_minutes",
+                  "name",
+                  "description",
+                  "is_published",
+                  "member_emails",
+                  "user_emails"
+                ]
               }
             }
           }
-        ],
+        },
         "responses": {
           "201": {
-            "description": "Appointment created"
+            "description": "Appointment created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "appointment_id": {
+                      "type": "string",
+                      "description": "The ID of the created appointment"
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -488,49 +702,59 @@
     "/conversations/groups": {
       "post": {
         "summary": "Create conversation group",
-        "parameters": [
-          {
-            "name": "title",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "message",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "member_participants",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            }
-          },
-          {
-            "name": "user_participants",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string"
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string"
+                  },
+                  "message": {
+                    "type": "string"
+                  },
+                  "member_participants": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "format": "email",
+                      "description": "Array of member email addresses"
+                    },
+                    "description": "Array of member email addresses"
+                  },
+                  "user_participants": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "format": "email",
+                      "description": "Array of user email addresses"
+                    },
+                    "description": "Array of user email addresses"
+                  }
+                },
+                "required": ["message", "member_participants", "user_participants"]
               }
             }
           }
-        ],
+        },
         "responses": {
-          "201": { 
-            "description": "Conversation group created"
+          "201": {
+            "description": "Group created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "group_id": {
+                      "type": "string",
+                      "description": "The ID of the created conversation group"
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }
