@@ -764,12 +764,32 @@
         "summary": "List webhooks",
         "responses": {
           "200": {
-            "description": "List of webhooks"
+            "description": "List of webhooks",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": { "type": "string" },
+                      "webhook_url": { "type": "string" },
+                      "event_type": { "type": "string" },
+                      "provider": { "type": "string" },
+                      "extra_parameters": { "type": "object" },
+                      "created_at": { "type": "string", "format": "date-time" },
+                      "updated_at": { "type": "string", "format": "date-time" }
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       },
       "post": {
-        "summary": "Create webhook",
+        "summary": "Create Webhook",
+        "description": "Create a webhook for events: element_completed, member_joining_offer, new_payment",
         "requestBody": {
           "required": true,
           "content": {
@@ -785,7 +805,7 @@
                       },
                       "event_type": {
                         "type": "string",
-                        "enum": ["member.created", "member.updated", "access.granted", "access.revoked"]
+                        "enum": ["element_completed", "member_joining_offer", "new_payment"]
                       },
                       "provider": {
                         "type": "string"
@@ -803,7 +823,23 @@
         },
         "responses": {
           "201": {
-            "description": "Webhook created"
+            "description": "Webhook created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": { "type": "string" },
+                    "webhook_url": { "type": "string" },
+                    "event_type": { "type": "string" },
+                    "provider": { "type": "string" },
+                    "extra_parameters": { "type": "object" },
+                    "created_at": { "type": "string", "format": "date-time" },
+                    "updated_at": { "type": "string", "format": "date-time" }
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -824,6 +860,40 @@
         "responses": {
           "204": {
             "description": "Webhook deleted"
+          }
+        }
+      },
+      "get": {
+        "summary": "Get webhook details",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Webhook details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": { "type": "string" },
+                    "webhook_url": { "type": "string" },
+                    "event_type": { "type": "string" },
+                    "provider": { "type": "string" },
+                    "extra_parameters": { "type": "object" },
+                    "created_at": { "type": "string", "format": "date-time" },
+                    "updated_at": { "type": "string", "format": "date-time" }
+                  }
+                }
+              }
+            }
           }
         }
       }

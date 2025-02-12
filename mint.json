@@ -102,6 +102,14 @@
       "pages": [
         "api-reference/endpoints/conversations/groups/create"
       ]
+    },
+    {
+      "group": "Webhooks",
+      "pages": [
+        "api-reference/endpoints/webhooks/list",
+        "api-reference/endpoints/webhooks/create",
+        "api-reference/endpoints/webhooks/delete"
+      ]
     }
   ],
   "footerSocials": {
