@@ -432,6 +432,16 @@
       "get": {
         "summary": "Get Offer Details",
         "description": "Retrieves details from a specific offer.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "Get Offer Details",
