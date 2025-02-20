@@ -6,6 +6,10 @@ description: "The SchoolMaker REST API lets you manage your members and track yo
 
 ## Authentication
 
+<Note>
+  Only schools on the **Pro** and **Business** plans will get access to the SchoolMaker API. You can upgrade your plan from your school's billing settings or contact our support team if you want to get API access.
+</Note>
+
 <Warning>
   Your SchoolMaker API key should never be used client side or exposed to your end users.
 </Warning>
@@ -253,15 +257,9 @@ Webhooks will allow you to detect when a specified event occurs. Supported event
 * `gamification_level_passed`  → Which will trigger when a level is passed in the community gamification feature
 
 <CardGroup cols={3}>
-  <Card title="List webhooks" icon="webhook" href="https://docs.schoolmaker.com/api-reference/endpoints/webhooks/list">
+  <Card title="List webhooks" icon="webhook" href="https://docs.schoolmaker.com/api-reference/endpoints/webhooks/list" />
 
-  </Card>
+  <Card title="Create a webhook" icon="webhook" href="https://docs.schoolmaker.com/api-reference/endpoints/webhooks/create" />
 
-  <Card title="Create a webhook" icon="webhook" href="https://docs.schoolmaker.com/api-reference/endpoints/webhooks/create">
-
-  </Card>
-
-  <Card title="Delete a Webhook" icon="webhook" href="https://docs.schoolmaker.com/api-reference/endpoints/webhooks/delete">
-
-  </Card>
+  <Card title="Delete a Webhook" icon="webhook" href="https://docs.schoolmaker.com/api-reference/endpoints/webhooks/delete" />
 </CardGroup>
