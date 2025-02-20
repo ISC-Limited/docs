@@ -223,4 +223,44 @@ Create coaching appointments and list coaching types:
 
 ## Conversations
 
-Create conversations automatically
+Create conversations to communicate with your members directly from your school.
+
+<Card title="Create a Conversation Group" icon="message" href="https://docs.schoolmaker.com/api-reference/endpoints/conversations/groups/create">
+  Create a conversation with two or more participants with a custom message.
+</Card>
+
+## Gamification
+
+Retrieves leaderboard ranking and filters by time range.
+
+<Card title="Get Leaderboard Ranking" icon="ranking-star" href="https://docs.schoolmaker.com/api-reference/endpoints/gamifications/leaderboards/list">
+  Get the top 10 members in the community gamification leaderboard ranking with filters by time range.
+</Card>
+
+## Webhooks (Triggers)
+
+Webhooks will allow you to detect when a specified event occurs. Supported event types include:
+
+* `element_completed` → When a step is completed
+
+* `member_joining_offer` →  When a member is added to an offer
+
+* `new_payment` → When a member initiates a new payment (whether it is on a one-time offer price, a multiple installment price, or a subscription)
+
+* `member_inactivity` → Will trigger at the same time as the member inactivity notification from SchoolMaker
+
+* `gamification_level_passed`  → Which will trigger when a level is passed in the community gamification feature
+
+<CardGroup cols={3}>
+  <Card title="List webhooks" icon="webhook" href="https://docs.schoolmaker.com/api-reference/endpoints/webhooks/list">
+
+  </Card>
+
+  <Card title="Create a webhook" icon="webhook" href="https://docs.schoolmaker.com/api-reference/endpoints/webhooks/create">
+
+  </Card>
+
+  <Card title="Delete a Webhook" icon="webhook" href="https://docs.schoolmaker.com/api-reference/endpoints/webhooks/delete">
+
+  </Card>
+</CardGroup>
