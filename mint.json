@@ -54,6 +54,7 @@
   "navigation": [
     {
       "group": "Get Started",
+      "icon": "bolt",
       "pages": [
         "quickstart"
       ]
