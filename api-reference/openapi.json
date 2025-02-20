@@ -308,6 +308,7 @@
                           "updated_at": { "type": "string", "format": "date-time" },
                           "progression": {
                             "type": "object",
+                            "description": "The progression-related elements will only be displayed if you specify a member_id or member_email",
                             "properties": {
                               "total_steps": { "type": "integer" },
                               "completed_steps": { "type": "integer" },
@@ -370,6 +371,7 @@
                     "updated_at": { "type": "string", "format": "date-time" },
                     "progression": {
                       "type": "object",
+                      "description": "The progression-related elements will only be displayed if you specify a member_id or member_email",
                       "properties": {
                         "total_steps": { "type": "integer" },
                         "completed_steps": { "type": "integer" },
