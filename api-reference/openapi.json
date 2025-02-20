@@ -197,7 +197,7 @@
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "admins": {
+                    "users": {
                       "type": "array",
                       "items": {
                         "type": "object",
