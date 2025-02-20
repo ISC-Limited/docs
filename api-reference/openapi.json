@@ -22,7 +22,7 @@
   "paths": {
     "/members": {
       "get": {
-        "summary": "List members",
+        "summary": "List Members",
         "parameters": [
           {
             "name": "page",
@@ -75,7 +75,7 @@
     },
     "/members/{id}": {
       "get": {
-        "summary": "Get member details",
+        "summary": "Get Member Details",
         "parameters": [
           {
             "name": "id",
@@ -135,7 +135,8 @@
     },
     "/members/{id}/accesses": {
       "get": {
-        "summary": "Get member accesses",
+        "summary": "Get Member Accesses",
+        "description": "Retrieves all member offer accesses.",
         "parameters": [
           {
             "name": "id",
@@ -187,7 +188,7 @@
     },
     "/admins": {
       "get": {
-        "summary": "List admins & moderators of your school",
+        "summary": "List Admins & Moderators",
         "responses": {
           "200": {
             "description": "List of admins & moderators of your school",
@@ -226,7 +227,7 @@
     },
     "/admins/{id}": {
       "get": {
-        "summary": "Get admin/moderator details",
+        "summary": "Get Admin/Moderator Details",
         "parameters": [
           {
             "name": "id",
@@ -267,7 +268,8 @@
     },
     "/products": {
       "get": {
-        "summary": "List school programs",
+        "summary": "List Programs",
+        "description": "Retrieves all programs of your school.",
         "parameters": [
           {
             "name": "member_id",
@@ -290,24 +292,29 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "id": { "type": "string" },
-                      "name": { "type": "string" },
-                      "description": { "type": "string" },
-                      "is_published": { "type": "boolean" },
-                      "position": { "type": "integer" },
-                      "created_at": { "type": "string", "format": "date-time" },
-                      "updated_at": { "type": "string", "format": "date-time" },
-                      "progression": {
+                  "type": "object",
+                  "properties": {
+                    "products": {
+                      "type": "array",
+                      "items": {
                         "type": "object",
                         "properties": {
-                          "total_steps": { "type": "integer" },
-                          "completed_steps": { "type": "integer" },
-                          "progression_rate": { "type": "number" },
-                          "time_spent": { "type": "string" }
+                          "id": { "type": "string" },
+                          "name": { "type": "string" },
+                          "description": { "type": "string" },
+                          "is_published": { "type": "boolean" },
+                          "position": { "type": "integer" },
+                          "created_at": { "type": "string", "format": "date-time" },
+                          "updated_at": { "type": "string", "format": "date-time" },
+                          "progression": {
+                            "type": "object",
+                            "properties": {
+                              "total_steps": { "type": "integer" },
+                              "completed_steps": { "type": "integer" },
+                              "progression_rate": { "type": "number" },
+                              "time_spent": { "type": "string" }
+                            }
+                          }
                         }
                       }
                     }
@@ -321,7 +328,7 @@
     },
     "/products/{id}": {
       "get": {
-        "summary": "Get product details",
+        "summary": "Get Program Details",
         "parameters": [
           {
             "name": "id",
@@ -380,7 +387,8 @@
     },
     "/offers": {
       "get": {
-        "summary": "List school offers",
+        "summary": "List Offers",
+        "description": "Retrieves all offers of your school.",
         "responses": {
           "200": {
             "description": "List of offers",
@@ -423,9 +431,74 @@
     "/offers/{id}": {
       "get": {
         "summary": "Get Offer Details",
+        "description": "Retrieves details from a specific offer.",
         "responses": {
           "200": {
             "description": "Get Offer Details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": { "type": "string" },
+                    "name": { "type": "string" },
+                    "description": { "type": "string" },
+                    "prices": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": { "type": "string" },
+                          "amount": { "type": "number" },
+                          "currency": { "type": "string" }
+                        }
+                      }
+                    },
+                    "created_at": { "type": "string", "format": "date-time" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "summary": "Set Offer Details",
+        "description": "Updates offer's name, description, and publish status.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "is_published": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Updated offer details",
             "content": {
               "application/json": {
                 "schema": {
@@ -456,7 +529,8 @@
     },
     "/offers/{id}/accesses": {
       "post": {
-        "summary": "Set offer member access",
+        "summary": "Set Offer Access for a Member",
+        "description": "Change member access status settings.",
         "parameters": [
           {
             "name": "id",
@@ -522,7 +596,8 @@
     },
     "/offers/{id}/accesses/set_drip_boost": {
       "post": {
-        "summary": "Set offer drip boost for a member",
+        "summary": "Set a Drip Boost",
+        "description": "Updates the drip boost value for a specific member in a specific offer.",
         "parameters": [
           {
             "name": "id",
@@ -581,7 +656,7 @@
     },
     "/coachings/types": {
       "get": {
-        "summary": "List coaching types",
+        "summary": "List Coaching Types",
         "responses": {
           "200": {
             "description": "List of coaching types",
@@ -622,7 +697,8 @@
     },
     "/coachings/appointments": {
       "post": {
-        "summary": "Create coaching appointment",
+        "summary": "Create a Coaching Appointment",
+        "description": "Creates an appointment with selected members and coaches.",
         "requestBody": {
           "required": true,
           "content": {
@@ -701,7 +777,8 @@
     },
     "/conversations/groups": {
       "post": {
-        "summary": "Create conversation group",
+        "summary": "Create a Conversation Group",
+        "description": "Creates a conversation and send a message to recipients.",
         "requestBody": {
           "required": true,
           "content": {
@@ -761,7 +838,7 @@
     },
     "/webhooks": {
       "get": {
-        "summary": "List webhooks",
+        "summary": "List Webhooks",
         "responses": {
           "200": {
             "description": "List of webhooks",
@@ -788,8 +865,8 @@
         }
       },
       "post": {
-        "summary": "Create Webhook",
-        "description": "Create a webhook for events: element_completed, member_joining_offer, new_payment",
+        "summary": "Create a Webhook",
+        "description": "Create a webhook for events: `element_completed`, `member_joining_offer`, `new_payment`, `member_inactivity`, `gamification_level_passed` ",
         "requestBody": {
           "required": true,
           "content": {
@@ -805,7 +882,7 @@
                       },
                       "event_type": {
                         "type": "string",
-                        "enum": ["element_completed", "member_joining_offer", "new_payment"]
+                        "enum": ["element_completed", "member_joining_offer", "new_payment", "member_inactivity", "gamification_level_passed"]
                       },
                       "provider": {
                         "type": "string"
@@ -846,7 +923,7 @@
     },
     "/webhooks/{id}": {
       "delete": {
-        "summary": "Delete webhook",
+        "summary": "Delete a Webhook",
         "parameters": [
           {
             "name": "id",
@@ -890,6 +967,63 @@
                     "extra_parameters": { "type": "object" },
                     "created_at": { "type": "string", "format": "date-time" },
                     "updated_at": { "type": "string", "format": "date-time" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/gamifications/leaderboards": {
+      "get": {
+        "summary": "Get Leaderboard Ranking",
+        "description": "Retrieves leaderboard ranking and filters by time range.",
+        "parameters": [
+          {
+            "name": "time_range",
+            "in": "query",
+            "description": "Time range for the leaderboard: all time, last 7 days, or last 30 days",
+            "schema": {
+              "type": "string",
+              "enum": ["all", "7", "30"],
+              "default": "all"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Leaderboard Data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "leaderboard": {
+                      "type": "object",
+                      "properties": {
+                        "total_members": {
+                          "type": "integer",
+                          "description": "Total number of members in the leaderboard"
+                        },
+                        "members": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "rank": { "type": "integer" },
+                              "id": { "type": "string" },
+                              "first_name": { "type": "string" },
+                              "last_name": { "type": "string" },
+                              "status": { "type": "string" },
+                              "email": { "type": "string" },
+                              "name": { "type": "string" },
+                              "total_points": { "type": "integer" }
+                            }
+                          }
+                        }
+                      }
+                    }
                   }
                 }
               }
