@@ -797,7 +797,8 @@
                 "type": "object",
                 "properties": {
                   "title": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The title is optional, by default it will just be the names of the participants"
                   },
                   "message": {
                     "type": "string"
