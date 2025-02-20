@@ -6,9 +6,9 @@ description: "The SchoolMaker REST API lets you manage your members and track yo
 ## Authentication
 
 <Warning>
-  Your SchoolMaker API key should never be used client side or exposed to your end users. 
+  Your SchoolMaker API key should never be used client side or exposed to your end users.
 </Warning>
- 
+
 Start here if you want to use the SchoolMaker API to manage your members or track your school activity.
 
 <Accordion title="Authentication Steps" defaultOpen={false}>
@@ -118,6 +118,10 @@ Sometimes things go wrong. Here are some tips to help you debug your API request
 ## Where to find IDs?
 
 <Accordion title="How to find member, offer, or program IDs" defaultOpen={false}>
+  **✨ New**: It is now possible to easily copy IDs from your school UI in one click. You will usually find this ID when editing or in the settings of the element for which you need an ID.
+
+  ![](/images/id_copy.png)
+
   To find a **member ID**, go to the member's profile in your admin space, and copy the ID from the current URL:
 
   ![](/member_id.png)
@@ -143,23 +147,49 @@ The SchoolMaker API allows you to get information about your members:
   <Card title="List members" icon="users" href="https://docs.schoolmaker.com/api-reference/endpoints/members/get">
     Get a list of your school's members. Note that this list has pagination
   </Card>
+
+  <Card title="Get member offer accesses" icon="user-magnifying-glass" href="https://docs.schoolmaker.com/api-reference/endpoints/members/accesses">
+    Get a detailed list of which offers a specific member has access to
+  </Card>
+</CardGroup>
+
+## Admins & Moderators
+
+The SchoolMaker API allows you to get information about admins & moderators in your school:
+
+<CardGroup cols="2">
+  <Card title="List admins & moderators" icon="user-shield" href="https://docs.schoolmaker.com/api-reference/endpoints/admins/list">
+    Get a list of your school's admins and moderators, with details about each
+  </Card>
+
+  <Card title="Get admin or moderator details" icon="user-shield" href="https://docs.schoolmaker.com/api-reference/endpoints/admins/get">
+    Get details from a specific admin or moderator from your school
+  </Card>
 </CardGroup>
 
 ## Offers
 
 Configure and list your school's offers.
 
-<CardGroup cols={3}>
-  <Card title="Set offer drip boost for a member" icon="calendar-circle-plus" href="https://docs.schoolmaker.com/api-reference/endpoints/offers/add_drip_boost">
-    Configure your member's drip boosts per offer
-  </Card>
-
-  <Card title="List school offers" icon="box" href="https://docs.schoolmaker.com/api-reference/endpoints/offers/list">
+<CardGroup cols={2}>
+  <Card title="List all offers" icon="boxes-stacked" href="https://docs.schoolmaker.com/api-reference/endpoints/offers/list">
     List all of your school's offers and get their names, descriptions & prices
   </Card>
 
-  <Card title="Set offer member access" icon="box-circle-check" href="https://docs.schoolmaker.com/api-reference/endpoints/offers/accesses/create">
-    Create or update an offer access for a member
+  <Card title="Get offer details" icon="box-open-full" href="https://docs.schoolmaker.com/api-reference/endpoints/offers/get">
+    Get details from a specific offer like its name, description, prices or creation date
+  </Card>
+
+  <Card title="Set offer details" icon="box" href="https://docs.schoolmaker.com/api-reference/endpoints/offers/update">
+    Updates offer’s name, description, and publish status
+  </Card>
+
+  <Card title="Set a drip boost" icon="calendar-circle-plus" href="https://docs.schoolmaker.com/api-reference/endpoints/offers/set_drip_boost">
+    Updates the drip boost value for a specific member in a specific offer
+  </Card>
+
+  <Card title="Set offer access for a member" icon="box-circle-check" href="https://docs.schoolmaker.com/api-reference/endpoints/offers/accesses/create">
+    Change member access status for a specific offer in your school
   </Card>
 </CardGroup>
 
@@ -167,6 +197,12 @@ Configure and list your school's offers.
 
 List school programs.
 
-<Card title="List school programs" icon="graduation-cap" href="https://docs.schoolmaker.com/api-reference/endpoints/products/list">
-  List all of your school's published programs with their IDs, names & descriptions
-</Card>
+<CardGroup cols="2">
+  <Card title="List programs" icon="graduation-cap" href="https://docs.schoolmaker.com/api-reference/endpoints/products/list">
+    List all of your school's published programs with their IDs, names & descriptions
+  </Card>
+
+  <Card title="Get program details" icon="sparkles" href="https://docs.schoolmaker.com/api-reference/endpoints/products/get">
+    Get details from a specific program and check specific member's progression for a program
+  </Card>
+</CardGroup>
