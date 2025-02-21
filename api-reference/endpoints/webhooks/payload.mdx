@@ -1,0 +1,147 @@
+---
+openapi: "post /webhooks/payload"
+title: "Webhook Payloads"
+---
+
+Webhooks allow you to receive real-time HTTP notifications when specific events occur in your SchoolMaker instance. When an event is triggered, we'll send a POST request to your configured webhook URL with a JSON payload containing event details.
+
+## Request Format
+
+All webhook notifications are sent as POST requests with the following characteristics:
+- Content-Type: `application/json`
+- Request body: JSON object containing event data
+- Webhook URL: The endpoint URL you configured to receive notifications
+
+<Warning>
+  Make sure your webhook endpoint can handle POST requests and process JSON payloads.
+</Warning>
+
+<Warning>
+  The Webhook pages are still being worked on, naming is not definitive.
+</Warning>
+
+## Available Trigger Events&#x20;
+
+### Step Completion
+
+**Event Name:** `element_completed` <br/>
+**Description:** Triggered when a member completes an element (step, lesson, section, etc.) in a course. <br/>
+
+**Payload Example:**
+
+```json
+{
+  "id": "string",
+  "user_type": "string",
+  "email": "string",
+  "full_name": "string",
+  "program_name": "string",
+  "program_completion_percentage": 0,
+  "section_name": "string",
+  "section_completion_percentage": 0,
+  "lesson_name": "string", 
+  "lesson_completion_percentage": 0,
+  "step_name": "string",
+  "step_completion_date": "string",
+  "see_in_schoolmaker": "string",
+  "status": "string",
+  "step_id": "string",
+  "step_type": "string",
+  "answer": "string",
+  "quiz_completion_rate": "string",
+  "quiz_data": [
+    {
+      "question": "string",
+      "member_answer": "string", 
+      "result": "string"
+    }
+  ],
+  "comment_text": "string",
+  "comment_link": "string",
+  "post_link": "string",
+  "step_file_upload_url": "string",
+  "milestone_proof_url": "string"
+}
+```
+
+### New Member Offer Access
+
+**Event Name:** `member_joining_offer` <br/>
+**Description:** Triggered when a new or existing member gets access to an offer. <br/>
+
+**Payload Example:**
+
+```json
+{
+  "email_member": "string",
+  "offer_name": "string",
+  "offer_id": "string"
+}
+```
+
+
+### New Payment
+
+**Event Name:** `new_payment` <br/>
+**Description:** Triggered when a successful payment is processed for an offer. <br/>
+
+**Payload Example:**
+
+```json
+{
+  "email_member": "string",
+  "first_name_member": "string",
+  "last_name_member": "string",
+  "offer_name": "string",
+  "offer_id": "string",
+  "transaction_creation_date": "string",
+  "transaction_status": "string",
+  "price": 0,
+  "currency": "string",
+  "price_type": "string"
+}
+```
+
+### Member Inactivity
+
+**Event Name:** `member_inactivity` <br/>
+**Description:** Triggered when a member is detected as inactive, coinciding with the SchoolMaker inactivity notification. <br/>
+
+**Payload Example:**
+
+```json
+{
+  "email_member": "string",
+  "first_name_member": "string",
+  "last_name_member": "string",
+  "offers": [
+    {
+      "offer_id": "string",
+      "offer_name": "string"
+    }
+  ],
+  "programs": [
+    {
+      "id": "string",
+      "name": "string",
+      "program_completion_percentage": 0
+    }
+  ]
+}
+```
+
+### Gamification Level Passed
+
+**Event Name:** `gamification_level_passed` <br/>
+**Description:** Triggered when a member reaches a new level in the community gamification feature. <br/>
+
+**Payload Example:**
+
+```json
+{
+  "email_member": "string",
+  "first_name_member": "string",
+  "last_name_member": "string",
+  "level_unlocked": 0
+}
+```

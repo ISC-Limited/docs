@@ -891,10 +891,11 @@
             "application/json": {
               "schema": {
                 "type": "object",
-          
                 "properties": {
                   "webhook_url": {
-                    "type": "string"
+                    "format": "uri", 
+                    "type": "string",
+                    "description": "The URL where webhook payloads will be sent via POST requests. This should be a publicly accessible HTTPS endpoint that can receive and process the webhook events."
                   },
                   "event_type": {
                     "type": "string",
