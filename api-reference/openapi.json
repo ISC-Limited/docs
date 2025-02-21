@@ -51,9 +51,18 @@
                           "email": { "type": "string" },
                           "first_name": { "type": "string" },
                           "last_name": { "type": "string" },
-                          "last_seen_at": { "type": "string", "format": "date-time" },
-                          "created_at": { "type": "string", "format": "date-time" },
-                          "updated_at": { "type": "string", "format": "date-time" }
+                          "last_seen_at": {
+                            "type": "string",
+                            "format": "date-time"
+                          },
+                          "created_at": {
+                            "type": "string",
+                            "format": "date-time"
+                          },
+                          "updated_at": {
+                            "type": "string",
+                            "format": "date-time"
+                          }
                         }
                       }
                     },
@@ -167,14 +176,29 @@
                             "properties": {
                               "id": { "type": "string", "nullable": true },
                               "amount": { "type": "number", "nullable": true },
-                              "currency": { "type": "string", "nullable": true },
-                              "price_type": { "type": "string", "nullable": true },
-                              "recurring_interval": { "type": "string", "nullable": true },
-                              "recurring_interval_count": { "type": "integer", "nullable": true }
+                              "currency": {
+                                "type": "string",
+                                "nullable": true
+                              },
+                              "price_type": {
+                                "type": "string",
+                                "nullable": true
+                              },
+                              "recurring_interval": {
+                                "type": "string",
+                                "nullable": true
+                              },
+                              "recurring_interval_count": {
+                                "type": "integer",
+                                "nullable": true
+                              }
                             }
                           },
                           "is_active": { "type": "boolean" },
-                          "access_created_at": { "type": "string", "format": "date-time" }
+                          "access_created_at": {
+                            "type": "string",
+                            "format": "date-time"
+                          }
                         }
                       }
                     }
@@ -210,9 +234,18 @@
                           "is_active": { "type": "boolean" },
                           "is_banned": { "type": "boolean" },
                           "time_zone": { "type": "string" },
-                          "last_seen_at": { "type": "string", "format": "date-time" },
-                          "created_at": { "type": "string", "format": "date-time" },
-                          "updated_at": { "type": "string", "format": "date-time" },
+                          "last_seen_at": {
+                            "type": "string",
+                            "format": "date-time"
+                          },
+                          "created_at": {
+                            "type": "string",
+                            "format": "date-time"
+                          },
+                          "updated_at": {
+                            "type": "string",
+                            "format": "date-time"
+                          },
                           "is_school_owner": { "type": "boolean" }
                         }
                       }
@@ -304,8 +337,14 @@
                           "description": { "type": "string" },
                           "is_published": { "type": "boolean" },
                           "position": { "type": "integer" },
-                          "created_at": { "type": "string", "format": "date-time" },
-                          "updated_at": { "type": "string", "format": "date-time" },
+                          "created_at": {
+                            "type": "string",
+                            "format": "date-time"
+                          },
+                          "updated_at": {
+                            "type": "string",
+                            "format": "date-time"
+                          },
                           "progression": {
                             "type": "object",
                             "description": "The progression-related elements will only be displayed if you specify a member_id or member_email",
@@ -418,7 +457,10 @@
                               }
                             }
                           },
-                          "created_at": { "type": "string", "format": "date-time" }
+                          "created_at": {
+                            "type": "string",
+                            "format": "date-time"
+                          }
                         }
                       }
                     }
@@ -592,12 +634,28 @@
                   "type": "object",
                   "properties": {
                     "id": { "type": "string", "description": "Access ID" },
-                    "member_id": { "type": "string", "description": "Member ID" },
-                    "email": { "type": "string", "description": "Member email" },
-                    "is_active": { "type": "boolean", "description": "Access active status" },
-                    "offer_name": { "type": "string", "description": "Offer name" },
+                    "member_id": {
+                      "type": "string",
+                      "description": "Member ID"
+                    },
+                    "email": {
+                      "type": "string",
+                      "description": "Member email"
+                    },
+                    "is_active": {
+                      "type": "boolean",
+                      "description": "Access active status"
+                    },
+                    "offer_name": {
+                      "type": "string",
+                      "description": "Offer name"
+                    },
                     "offer_id": { "type": "string", "description": "Offer ID" },
-                    "created_at": { "type": "string", "format": "date-time", "description": "Creation timestamp" }
+                    "created_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Creation timestamp"
+                    }
                   }
                 }
               }
@@ -652,12 +710,27 @@
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "access_id": { "type": "string", "description": "Access ID" },
-                    "offer_name": { "type": "string", "description": "Offer name" },
+                    "access_id": {
+                      "type": "string",
+                      "description": "Access ID"
+                    },
+                    "offer_name": {
+                      "type": "string",
+                      "description": "Offer name"
+                    },
                     "offer_id": { "type": "string", "description": "Offer ID" },
-                    "member_id": { "type": "string", "description": "Member ID" },
-                    "email": { "type": "string", "description": "Member email" },
-                    "drip": { "type": "integer", "description": "Drip boost value" }
+                    "member_id": {
+                      "type": "string",
+                      "description": "Member ID"
+                    },
+                    "email": {
+                      "type": "string",
+                      "description": "Member email"
+                    },
+                    "drip": {
+                      "type": "integer",
+                      "description": "Drip boost value"
+                    }
                   }
                 }
               }
@@ -855,9 +928,7 @@
       }
     },
     "/webhooks/payload": {
-      "post": {
-        
-      }
+      "post": {}
     },
     "/webhooks": {
       "get": {
@@ -898,13 +969,19 @@
                 "type": "object",
                 "properties": {
                   "webhook_url": {
-                    "format": "uri", 
+                    "format": "uri",
                     "type": "string",
                     "description": "The URL where webhook payloads will be sent via POST requests. This should be a publicly accessible HTTPS endpoint that can receive and process the webhook events."
                   },
                   "event_type": {
                     "type": "string",
-                    "enum": ["element_completed", "member_joining_offer", "new_payment", "member_inactivity", "gamification_level_passed"]
+                    "enum": [
+                      "element_completed",
+                      "member_joining_offer",
+                      "new_payment",
+                      "member_inactivity",
+                      "gamification_level_passed"
+                    ]
                   },
                   "provider": {
                     "type": "string"
@@ -1061,7 +1138,7 @@
                       }
                     }
                   }
-                } 
+                }
               }
             }
           }
