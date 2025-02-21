@@ -805,6 +805,11 @@
                   "message": {
                     "type": "string"
                   },
+                  "sender_id": {
+                    "type": "string",
+                    "description": "The ID of the admin or moderator sender. Default is the school owner.",
+                    "default": "school_owner_id"
+                  },
                   "member_participants": {
                     "type": "array",
                     "items": {
@@ -824,7 +829,7 @@
                     "description": "Array of user email addresses"
                   }
                 },
-                "required": ["message", "member_participants", "user_participants"]
+                "required": ["message", "member_participants"]
               }
             }
           }
@@ -886,27 +891,39 @@
             "application/json": {
               "schema": {
                 "type": "object",
+          
                 "properties": {
-                  "webhook": {
+                  "webhook_url": {
+                    "type": "string"
+                  },
+                  "event_type": {
+                    "type": "string",
+                    "enum": ["element_completed", "member_joining_offer", "new_payment", "member_inactivity", "gamification_level_passed"]
+                  },
+                  "provider": {
+                    "type": "string"
+                  },
+                  "extra_parameters": {
                     "type": "object",
                     "properties": {
-                      "webhook_url": {
-                        "type": "string"
+                      "offerFilter": {
+                        "type": "array",
+                        "description": "List of offer IDs to filter `member_joining_offer` events",
+                        "items": {
+                          "type": "string"
+                        }
                       },
-                      "event_type": {
-                        "type": "string",
-                        "enum": ["element_completed", "member_joining_offer", "new_payment", "member_inactivity", "gamification_level_passed"]
-                      },
-                      "provider": {
-                        "type": "string"
-                      },
-                      "extra_parameters": {
-                        "type": "object"
+                      "activeLevels": {
+                        "type": "array",
+                        "description": "List of level numbers to filter `gamification_level_passed` events",
+                        "items": {
+                          "type": "integer"
+                        }
                       }
-                    },
-                    "required": ["webhook_url", "event_type"]
+                    }
                   }
-                }
+                },
+                "required": ["webhook_url", "event_type"]
               }
             }
           }
