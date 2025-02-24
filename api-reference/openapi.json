@@ -927,9 +927,6 @@
         }
       }
     },
-    "/webhooks/payload": {
-      "post": {}
-    },
     "/webhooks": {
       "get": {
         "summary": "List Webhooks",
@@ -1146,6 +1143,7 @@
       }
     }
   },
+
   "components": {
     "securitySchemes": {
       "bearerAuth": {
