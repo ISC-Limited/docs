@@ -1133,7 +1133,7 @@
       }
     }
   },
-
+ 
   "components": {
     "securitySchemes": {
       "bearerAuth": {
