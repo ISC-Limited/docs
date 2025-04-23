@@ -602,25 +602,20 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "access": {
-                    "type": "object",
-                    "properties": {
-                      "member_email": {
-                        "type": "string"
-                      },
-                      "status": {
-                        "type": "boolean"
-                      },
-                      "first_name": {
-                        "type": "string"
-                      },
-                      "last_name": {
-                        "type": "string"
-                      }
-                    },
-                    "required": ["member_email", "status"]
+                  "member_email": {
+                    "type": "string"
+                  },
+                  "status": {
+                    "type": "boolean"
+                  },
+                  "first_name": {
+                    "type": "string"
+                  },
+                  "last_name": {
+                    "type": "string"
                   }
-                }
+                },
+                "required": ["member_email", "status"]
               }
             }
           }
@@ -685,19 +680,14 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "access": {
-                    "type": "object",
-                    "properties": {
-                      "member_email": {
-                        "type": "string"
-                      },
-                      "drip": {
-                        "type": "integer"
-                      }
-                    },
-                    "required": ["member_email", "drip"]
+                  "member_email": {
+                    "type": "string"
+                  },
+                  "drip": {
+                    "type": "integer"
                   }
-                }
+                },
+                "required": ["member_email", "drip"]
               }
             }
           }
