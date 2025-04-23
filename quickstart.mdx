@@ -4,7 +4,7 @@ icon: "bolt"
 description: "The SchoolMaker REST API lets you manage your members and track your school's activity. "
 ---
 
-## Authentication
+## Authentication 
 
 <Note>
   Only schools on the **Pro** and **Business** plans will get access to the SchoolMaker API. You can upgrade your plan from your school's billing settings or contact our support team if you want to get API access.
@@ -16,8 +16,8 @@ description: "The SchoolMaker REST API lets you manage your members and track yo
 
 Start here if you want to use the SchoolMaker API to manage your members or track your school activity.
 
-<Accordion title="Authentication Steps" defaultOpen={false}>
-  To get started, you’ll need an API key. Go to `Settings` -> `Integration & API` in your SchoolMaker settings and scroll down to the API Section.
+<Accordion title="Authentication Steps" defaultOpen="false">
+  To get started, you’ll need an API key. Go to `Settings` -\> `Integration & API` in your SchoolMaker settings and scroll down to the API Section.
 
   ![](/get_api_key.png)
 
@@ -26,7 +26,6 @@ Start here if you want to use the SchoolMaker API to manage your members or trac
   <Info>
     When making an API call, you will need to add an Authorization header and set the API key as a Bearer token.
   </Info>
-
   Here’s an example Curl request (replace `YOUR_API_KEY` with your own API key):
 
   ```bash
@@ -44,16 +43,14 @@ Start here if you want to use the SchoolMaker API to manage your members or trac
 
 The SchoolMaker API uses rate limits to manage request volumes and ensure fair usage.
 
-<Accordion title="Rate Limiting Details" defaultOpen={false}>
+<Accordion title="Rate Limiting Details" defaultOpen="false">
   **Rate Limit Headers**:
 
   Each API response includes headers to help you track your usage:
 
-  * X-RateLimit-Limit: Maximum requests allowed per period.
-
-  * X-RateLimit-Remaining: Requests left in the current period.
-
-  * X-RateLimit-Reset: Time when the limit resets (epoch time).
+  - X-RateLimit-Limit: Maximum requests allowed per period.
+  - X-RateLimit-Remaining: Requests left in the current period.
+  - X-RateLimit-Reset: Time when the limit resets (epoch time).
 
   **Rate Limiting Rules**:
 
@@ -78,51 +75,37 @@ All responses are in JSON format. Successful responses will contain the requeste
 
 ## HTTP Status Codes
 
-* 200: Success
-
-* 201: Created
-
-* 204: No Content
-
-* 400: Bad Request
-
-* 401: Unauthorized
-
-* 404: Not Found
-
-* 422: Unprocessable Entity
-
-* 500: Internal Server Error
+- 200: Success
+- 201: Created
+- 204: No Content
+- 400: Bad Request
+- 401: Unauthorized
+- 404: Not Found
+- 422: Unprocessable Entity
+- 500: Internal Server Error
 
 ## Debugging
 
 Sometimes things go wrong. Here are some tips to help you debug your API requests.
 
-<Accordion title="Debugging Steps" defaultOpen={false}>
+<Accordion title="Debugging Steps" defaultOpen="false">
   If you are having trouble with the API, we recommend using a tool like [Postman](https://www.postman.com/) to test your requests.
 
   1. Dealing with “Not Authenticated” Codes:
-
-     * Make sure you are using an API key from the SchoolMaker "Integrations & API" settings page and that you are including it in your requests.
-
-     * Your API key should be included in the “Authorization” header of your request, following the format “Authorization: Bearer \{YOUR\_API\_KEY}”.
-
+     - Make sure you are using an API key from the SchoolMaker "Integrations & API" settings page and that you are including it in your requests.
+     - Your API key should be included in the “Authorization” header of your request, following the format “Authorization: Bearer {YOUR_API_KEY}”.
   2. Authorization Header:
-
-     * Ensure that you are correctly including the “Authorization” header in your requests. The value of this header should follow the format “Bearer \{YOUR\_API\_KEY}”.
-
+     - Ensure that you are correctly including the “Authorization” header in your requests. The value of this header should follow the format “Bearer {YOUR_API_KEY}”.
   3. Handling 400-level Responses:
-
-     * 400-level responses typically indicate that there was a problem with the request. The response body will contain more information about what went wrong, so be sure to check it for details.
-
-     * Check on your request type (GET, POST, PUT, DELETE) and ensure that you are using the correct one for the endpoint you are trying to access.
+     - 400-level responses typically indicate that there was a problem with the request. The response body will contain more information about what went wrong, so be sure to check it for details.
+     - Check on your request type (GET, POST, PUT, DELETE) and ensure that you are using the correct one for the endpoint you are trying to access.
 
   If you have followed these steps and are still experiencing issues, don’t hesitate to [reach out to the SchoolMaker team](mailto:support@schoolmaker.co) for further assistance.
 </Accordion>
 
 ## Where to find IDs?
 
-<Accordion title="How to find member, offer, or program IDs" defaultOpen={false}>
+<Accordion title="How to find member, offer, or program IDs" defaultOpen="false">
   **✨ New**: It is now possible to easily copy IDs from your school UI in one click. You will usually find this ID when editing or in the settings of the element for which you need an ID.
 
   ![](/images/id_copy.png)
@@ -144,15 +127,13 @@ Sometimes things go wrong. Here are some tips to help you debug your API request
 
 The SchoolMaker API allows you to get information about your members:
 
-<CardGroup cols={2}>
+<CardGroup cols="2">
   <Card title="Get member details" icon="user" href="https://docs.schoolmaker.com/api-reference/endpoints/members/list">
     Get details from a member like their first name, last name, email, or creation date
   </Card>
-
   <Card title="List members" icon="users" href="https://docs.schoolmaker.com/api-reference/endpoints/members/get">
     Get a list of your school's members. Note that this list has pagination
   </Card>
-
   <Card title="Get member offer accesses" icon="user-magnifying-glass" href="https://docs.schoolmaker.com/api-reference/endpoints/members/accesses">
     Get a detailed list of which offers a specific member has access to
   </Card>
@@ -166,7 +147,6 @@ The SchoolMaker API allows you to get information about admins & moderators in y
   <Card title="List admins & moderators" icon="user-shield" href="https://docs.schoolmaker.com/api-reference/endpoints/admins/list">
     Get a list of your school's admins and moderators, with details about each
   </Card>
-
   <Card title="Get admin or moderator details" icon="user-shield" href="https://docs.schoolmaker.com/api-reference/endpoints/admins/get">
     Get details from a specific admin or moderator from your school
   </Card>
@@ -176,23 +156,19 @@ The SchoolMaker API allows you to get information about admins & moderators in y
 
 Configure and list your school's offers:
 
-<CardGroup cols={2}>
+<CardGroup cols="2">
   <Card title="List all offers" icon="boxes-stacked" href="https://docs.schoolmaker.com/api-reference/endpoints/offers/list">
     List all of your school's offers and get their names, descriptions & prices
   </Card>
-
   <Card title="Get offer details" icon="box-open-full" href="https://docs.schoolmaker.com/api-reference/endpoints/offers/get">
     Get details from a specific offer like its name, description, prices or creation date
   </Card>
-
   <Card title="Set offer details" icon="box" href="https://docs.schoolmaker.com/api-reference/endpoints/offers/update">
     Updates offer’s name, description, and publish status
   </Card>
-
   <Card title="Set a drip boost" icon="calendar-circle-plus" href="https://docs.schoolmaker.com/api-reference/endpoints/offers/set_drip_boost">
     Updates the drip boost value for a specific member in a specific offer
   </Card>
-
   <Card title="Set offer access for a member" icon="box-circle-check" href="https://docs.schoolmaker.com/api-reference/endpoints/offers/accesses/create">
     Change member access status for a specific offer in your school
   </Card>
@@ -206,7 +182,6 @@ List school programs and get more information about specific programs and member
   <Card title="List programs" icon="graduation-cap" href="https://docs.schoolmaker.com/api-reference/endpoints/products/list">
     List all of your school's published programs with their IDs, names & descriptions
   </Card>
-
   <Card title="Get program details" icon="graduation-cap" href="https://docs.schoolmaker.com/api-reference/endpoints/products/get">
     Get details from a specific program and check specific member's progression for a program
   </Card>
@@ -220,7 +195,6 @@ Create coaching appointments and list coaching types:
   <Card title="Create a coaching appointment" icon="phone-plus" href="https://docs.schoolmaker.com/api-reference/endpoints/coachings/appointments/create">
     Create a coaching appointment, for example after a booking is created in Calendly
   </Card>
-
   <Card title="List coaching types" icon="phone" href="https://docs.schoolmaker.com/api-reference/endpoints/coachings/types/list">
     Get a list of all coaching types you have created in your school
   </Card>
@@ -246,22 +220,22 @@ Retrieves leaderboard ranking and filters by time range.
 
 Webhooks will allow you to detect when a specified event occurs. Supported event types include:
 
-* `element_completed` → When a step is completed
+- `element_completed` → When a step is completed
+- `member_joining_offer` →  When a member is added to an offer
+- `new_payment` → When a member initiates a new payment (whether it is on a one-time offer price, a multiple installment price, or a subscription)
+- `member_inactivity` → Will trigger at the same time as the member inactivity notification from SchoolMaker
+- `gamification_level_passed`  → Which will trigger when a level is passed in the community gamification feature
 
-* `member_joining_offer` →  When a member is added to an offer
-
-* `new_payment` → When a member initiates a new payment (whether it is on a one-time offer price, a multiple installment price, or a subscription)
-
-* `member_inactivity` → Will trigger at the same time as the member inactivity notification from SchoolMaker
-
-* `gamification_level_passed`  → Which will trigger when a level is passed in the community gamification feature
-
-<CardGroup cols={3}>
-  <Card title="List webhooks" icon="webhook" href="https://docs.schoolmaker.com/api-reference/endpoints/webhooks/list" />
-
-  <Card title="Create a webhook" icon="webhook" href="https://docs.schoolmaker.com/api-reference/endpoints/webhooks/create" />
-
-  <Card title="Delete a Webhook" icon="webhook" href="https://docs.schoolmaker.com/api-reference/endpoints/webhooks/delete" />
+<CardGroup cols="3">
+  <Card title="List webhooks" icon="webhook" href="https://docs.schoolmaker.com/api-reference/endpoints/webhooks/list">
+    
+  </Card>
+  <Card title="Create a webhook" icon="webhook" href="https://docs.schoolmaker.com/api-reference/endpoints/webhooks/create">
+    
+  </Card>
+  <Card title="Delete a Webhook" icon="webhook" href="https://docs.schoolmaker.com/api-reference/endpoints/webhooks/delete">
+    
+  </Card>
 </CardGroup>
 
 To see the payload for each event, please refer to the [Webhooks Payload](/api-reference/endpoints/webhooks/payload) page.
