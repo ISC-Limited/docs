@@ -4,7 +4,7 @@ icon: "bolt"
 description: "The SchoolMaker REST API lets you manage your members and track your school's activity. "
 ---
 
-## Authentication 
+## Authentication
 
 <Note>
   Only schools on the **Pro** and **Business** plans will get access to the SchoolMaker API. You can upgrade your plan from your school's billing settings or contact our support team if you want to get API access.
@@ -93,9 +93,9 @@ Sometimes things go wrong. Here are some tips to help you debug your API request
 
   1. Dealing with “Not Authenticated” Codes:
      - Make sure you are using an API key from the SchoolMaker "Integrations & API" settings page and that you are including it in your requests.
-     - Your API key should be included in the “Authorization” header of your request, following the format “Authorization: Bearer {YOUR_API_KEY}”.
+     - Your API key should be included in the “Authorization” header of your request, following the format “Authorization: Bearer YOUR_API_KEY”.
   2. Authorization Header:
-     - Ensure that you are correctly including the “Authorization” header in your requests. The value of this header should follow the format “Bearer {YOUR_API_KEY}”.
+     - Ensure that you are correctly including the “Authorization” header in your requests. The value of this header should follow the format “Bearer YOUR_API_KEY”.
   3. Handling 400-level Responses:
      - 400-level responses typically indicate that there was a problem with the request. The response body will contain more information about what went wrong, so be sure to check it for details.
      - Check on your request type (GET, POST, PUT, DELETE) and ensure that you are using the correct one for the endpoint you are trying to access.
@@ -170,7 +170,7 @@ Configure and list your school's offers:
     Updates the drip boost value for a specific member in a specific offer
   </Card>
   <Card title="Set offer access for a member" icon="box-circle-check" href="https://docs.schoolmaker.com/api-reference/endpoints/offers/accesses/create">
-    Change member access status for a specific offer in your school
+    Change member access status for a specific offer in your school or add a new member
   </Card>
 </CardGroup>
 

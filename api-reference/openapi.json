@@ -583,8 +583,8 @@
     },
     "/offers/{id}/accesses": {
       "post": {
-        "summary": "Set Offer Access for a Member",
-        "description": "Change member access status settings.",
+        "summary": "Set Offer Access for a Member / Add a Member",
+        "description": "Change member access status settings or add a new member.",
         "parameters": [
           {
             "name": "id",
