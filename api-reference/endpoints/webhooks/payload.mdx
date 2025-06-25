@@ -21,13 +21,13 @@ All webhook notifications are sent as POST requests with the following character
   The Webhook pages are still being worked on, naming is not definitive.
 </Warning>
 
-## Available Trigger Events 
+## Available Trigger Events
 
 ### Step Completion
 
-**Event Name:** `element_completed` \
+**Event Name:** `element_completed` \\
 
-**Description:** Triggered when a member completes an element (step, lesson, section, etc.) in a course. 
+**Description:** Triggered when a member completes an element (step, lesson, section, etc.) in a course.
 
 **Payload Example:**
 
@@ -49,6 +49,7 @@ All webhook notifications are sent as POST requests with the following character
   "status": "string",
   "step_id": "string",
   "step_type": "string",
+  "reviewer_id": "string",
   "answer": "string",
   "quiz_completion_rate": "string",
   "quiz_data": [
@@ -74,9 +75,9 @@ All webhook notifications are sent as POST requests with the following character
 
 ### New Member Offer Access
 
-**Event Name:** `member_joining_offer` \
+**Event Name:** `member_joining_offer` \\
 
-**Description:** Triggered when a new or existing member gets access to an offer. 
+**Description:** Triggered when a new or existing member gets access to an offer.
 
 **Payload Example:**
 
@@ -90,9 +91,9 @@ All webhook notifications are sent as POST requests with the following character
 
 ### New Payment
 
-**Event Name:** `new_payment` \
+**Event Name:** `new_payment` \\
 
-**Description:** Triggered when a successful payment is processed for an offer. 
+**Description:** Triggered when a successful payment is processed for an offer.
 
 **Payload Example:**
 
@@ -113,9 +114,9 @@ All webhook notifications are sent as POST requests with the following character
 
 ### Member Inactivity
 
-**Event Name:** `member_inactivity` \
+**Event Name:** `member_inactivity` \\
 
-**Description:** Triggered when a member is detected as inactive, coinciding with the SchoolMaker inactivity notification. 
+**Description:** Triggered when a member is detected as inactive, coinciding with the SchoolMaker inactivity notification.
 
 **Payload Example:**
 
@@ -142,9 +143,9 @@ All webhook notifications are sent as POST requests with the following character
 
 ### Gamification Level Passed
 
-**Event Name:** `gamification_level_passed` \
+**Event Name:** `gamification_level_passed` \\
 
-**Description:** Triggered when a member reaches a new level in the community gamification feature. 
+**Description:** Triggered when a member reaches a new level in the community gamification feature.
 
 **Payload Example:**
 
