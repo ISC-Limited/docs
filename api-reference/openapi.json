@@ -964,6 +964,7 @@
                     "type": "string",
                     "enum": [
                       "element_completed",
+                      "element_pending",
                       "member_joining_offer",
                       "new_payment",
                       "member_inactivity",

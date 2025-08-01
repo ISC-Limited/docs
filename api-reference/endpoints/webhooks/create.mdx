@@ -1,25 +1,18 @@
 ---
-openapi: post /webhooks
+openapi: "post /webhooks"
 ---
 
 Webhooks will allow you to detect when a specified event occurs. Supported event types include:
 
-* `element_completed` → When a step is completed
-
-* `member_joining_offer` →  When a member is added to an offer
-
-  * **extra\_parameters**:
-
-    * `offerFilter` → An offer ID or multiple offer IDs separated by commas. This event will only trigger if the member is added to an offer that matches the filter
-
-* `new_payment` → When a member initiates a new payment (whether it is on a one-time offer price, a multiple installment price, or a subscription)
-
-* `member_inactivity` → Will trigger at the same time as the member inactivity notification from SchoolMaker
-
-* `gamification_level_passed`  → Which will trigger when a level is passed in the community gamification feature
-
-  * **extra\_parameters**:
-
-    * `activeLevels` → A comma-separated list of level numbers. This event will only trigger if the member has passed a level that is in the list
+- `element_completed` → When a step is completed
+- `element_pending` → When a member submitted an answer
+- `member_joining_offer` →  When a member is added to an offer
+  - **extra_parameters**:
+    - `offerFilter` → An offer ID or multiple offer IDs separated by commas. This event will only trigger if the member is added to an offer that matches the filter
+- `new_payment` → When a member initiates a new payment (whether it is on a one-time offer price, a multiple installment price, or a subscription)
+- `member_inactivity` → Will trigger at the same time as the member inactivity notification from SchoolMaker
+- `gamification_level_passed`  → Which will trigger when a level is passed in the community gamification feature
+  - **extra_parameters**:
+    - `activeLevels` → A comma-separated list of level numbers. This event will only trigger if the member has passed a level that is in the list
 
 To see the payload for each event, please refer to the [Webhooks Payload](/api-reference/endpoints/webhooks/payload) page.
