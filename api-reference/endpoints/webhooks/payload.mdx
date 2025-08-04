@@ -23,6 +23,56 @@ All webhook notifications are sent as POST requests with the following character
 
 ## Available Trigger Events
 
+### Step Pending
+
+**Event Name:** `element_pending` \\
+
+**Description:** Triggers when a member submits an answer that needs to be corrected..
+
+**Payload Example:**
+
+```json
+{
+  "id": "string",
+  "user_type": "string",
+  "email": "string",
+  "full_name": "string",
+  "program_name": "string",
+  "program_completion_percentage": 0,
+  "section_name": "string",
+  "section_completion_percentage": 0,
+  "lesson_name": "string", 
+  "lesson_completion_percentage": 0,
+  "step_name": "string",
+  "step_completion_date": "string",
+  "see_in_schoolmaker": "string",
+  "status": "string",
+  "step_id": "string",
+  "step_type": "string",
+  "reviewer_id": "string",
+  "answer": "string",
+  "quiz_completion_rate": "string",
+  "quiz_data": [
+    {
+      "question": "string",
+      "member_answer": "string", 
+      "result": "string"
+    }
+  ],
+  "form_data": [
+    {
+      "question": "string",
+      "answer": "string"
+    }
+  ],
+  "comment_text": "string",
+  "comment_link": "string",
+  "post_link": "string",
+  "step_file_upload_url": "string",
+  "milestone_proof_url": "string"
+}
+```
+
 ### Step Completion
 
 **Event Name:** `element_completed` \\
