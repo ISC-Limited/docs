@@ -349,8 +349,10 @@
                             "type": "object",
                             "description": "The progression-related elements will only be displayed if you specify a member_id or member_email",
                             "properties": {
-                              "total_steps": { "type": "integer" },
-                              "completed_steps": { "type": "integer" },
+                              "total_steps": { "type": "integer", "description": "These are steps that are NOT optional" },
+                              "total_optional_steps": { "type": "integer" },
+                              "completed_steps": { "type": "integer", "description": "These are steps that are NOT optional" },
+                              "completed_optional_steps": { "type": "integer" },
                               "progression_rate": { "type": "number" },
                               "time_spent": { "type": "string" }
                             }
@@ -412,8 +414,10 @@
                       "type": "object",
                       "description": "The progression-related elements will only be displayed if you specify a member_id or member_email",
                       "properties": {
-                        "total_steps": { "type": "integer" },
-                        "completed_steps": { "type": "integer" },
+                        "total_steps": { "type": "integer", "description": "These are steps that are NOT optional" },
+                        "total_optional_steps": { "type": "integer" },
+                        "completed_steps": { "type": "integer", "description": "These are steps that are NOT optional" },
+                        "completed_optional_steps": { "type": "integer" },
                         "progression_rate": { "type": "number" },
                         "time_spent": { "type": "string" }
                       }
