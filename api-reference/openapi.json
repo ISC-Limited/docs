@@ -25,6 +25,20 @@
         "summary": "List Members",
         "parameters": [
           {
+            "name": "product_id",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "offer_id",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
             "name": "page",
             "in": "query",
             "schema": {
@@ -82,14 +96,20 @@
         }
       }
     },
-    "/members/{id}": {
+    "/members": {
       "get": {
         "summary": "Get Member Details",
         "parameters": [
           {
             "name": "id",
             "in": "path",
-            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "email",
+            "in": "path",
             "schema": {
               "type": "string"
             }
@@ -142,15 +162,218 @@
         }
       }
     },
-    "/members/{id}/accesses": {
+    "/members/set_suspend": {
+      "post": {
+        "summary": "Set Member Suspend Status",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "email",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "suspend",
+            "in": "path",
+            "required": true,            
+            "schema": {
+              "type": "string",
+              "default": "false"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Member details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "Unique identifier of the member"
+                    },
+                    "email": {
+                      "type": "string",
+                      "description": "Email address of the member"
+                    },
+                    "first_name": {
+                      "type": "string",
+                      "description": "First name of the member"
+                    },
+                    "last_name": {
+                      "type": "string",
+                      "description": "Last name of the member"
+                    },
+                    "last_seen_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Timestamp when the member was last seen"
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Timestamp when the member was created"
+                    },
+                    "updated_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Timestamp when the member was last updated"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/members/set_ban": {
+      "post": {
+        "summary": "Set Member Ban Status",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "email",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ban",
+            "in": "path",
+            "required": true,            
+            "schema": {
+              "type": "string",
+              "default": "false"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Member details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "Unique identifier of the member"
+                    },
+                    "email": {
+                      "type": "string",
+                      "description": "Email address of the member"
+                    },
+                    "first_name": {
+                      "type": "string",
+                      "description": "First name of the member"
+                    },
+                    "last_name": {
+                      "type": "string",
+                      "description": "Last name of the member"
+                    },
+                    "last_seen_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Timestamp when the member was last seen"
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Timestamp when the member was created"
+                    },
+                    "updated_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Timestamp when the member was last updated"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/members/delete_member": {
+      "post": {
+        "summary": "Delete a member",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "email",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Delete Member",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "description": "Deletion status"
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Message description"
+                    },
+                    "id": {
+                      "type": "string",
+                      "description": "ID of the member deleted"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/members/accesses": {
       "get": {
         "summary": "Get Member Accesses",
         "description": "Retrieves all member offer accesses.",
         "parameters": [
           {
             "name": "id",
-            "in": "path",
-            "required": true,
+            "in": "path"
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "email",
+            "in": "path"
             "schema": {
               "type": "string"
             }
@@ -258,14 +481,20 @@
         }
       }
     },
-    "/admins/{id}": {
+    "/admins": {
       "get": {
         "summary": "Get Admin/Moderator Details",
         "parameters": [
           {
             "name": "id",
-            "in": "path",
-            "required": true,
+            "in": "path"
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "email",
+            "in": "path"
             "schema": {
               "type": "string"
             }
