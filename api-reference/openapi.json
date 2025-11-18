@@ -22,139 +22,95 @@
   "paths": {
     "/members": {
       "get": {
-        "summary": "List Members",
+        "summary": "List Members or Get a Member",
+        "description": "Without id/email, returns a paginated list of members. If id or email is provided, returns a single member.",
         "parameters": [
           {
             "name": "product_id",
             "in": "query",
-            "schema": {
-              "type": "string"
-            }
+            "schema": { "type": "string" }
           },
           {
             "name": "offer_id",
             "in": "query",
-            "schema": {
-              "type": "string"
-            }
+            "schema": { "type": "string" }
           },
           {
             "name": "page",
             "in": "query",
-            "schema": {
-              "type": "integer",
-              "default": 1
-            }
+            "schema": { "type": "integer", "default": 1 }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "schema": { "type": "string" },
+            "description": "If provided, returns the member with this ID instead of a list."
+          },
+          {
+            "name": "email",
+            "in": "query",
+            "schema": { "type": "string" },
+            "description": "If provided (and id not given), returns the member with this email instead of a list."
           }
         ],
         "responses": {
           "200": {
-            "description": "List of members with pagination",
+            "description": "List of members (when no id/email) or a single member (when id/email provided).",
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "members": {
-                      "type": "array",
-                      "description": "25 members per page.",
-                      "items": {
-                        "type": "object",
-                        "properties": {
-                          "id": { "type": "string" },
-                          "email": { "type": "string" },
-                          "first_name": { "type": "string" },
-                          "last_name": { "type": "string" },
-                          "last_seen_at": {
-                            "type": "string",
-                            "format": "date-time"
-                          },
-                          "created_at": {
-                            "type": "string",
-                            "format": "date-time"
-                          },
-                          "updated_at": {
-                            "type": "string",
-                            "format": "date-time"
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "members": {
+                          "type": "array",
+                          "description": "25 members per page.",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": { "type": "string" },
+                              "email": { "type": "string" },
+                              "first_name": { "type": "string" },
+                              "last_name": { "type": "string" },
+                              "last_seen_at": { "type": "string", "format": "date-time" },
+                              "created_at": { "type": "string", "format": "date-time" },
+                              "updated_at": { "type": "string", "format": "date-time" }
+                            }
+                          }
+                        },
+                        "pagination": {
+                          "type": "object",
+                          "properties": {
+                            "total_count": { "type": "integer" },
+                            "total_pages": { "type": "integer" },
+                            "current_page": { "type": "integer" }
                           }
                         }
                       }
                     },
-                    "pagination": {
+                    {
                       "type": "object",
                       "properties": {
-                        "total_count": { "type": "integer" },
-                        "total_pages": { "type": "integer" },
-                        "current_page": { "type": "integer" }
+                        "id": { "type": "string" },
+                        "email": { "type": "string" },
+                        "first_name": { "type": "string" },
+                        "last_name": { "type": "string" },
+                        "last_seen_at": {
+                          "type": "string",
+                          "format": "date-time"
+                        },
+                        "created_at": {
+                          "type": "string",
+                          "format": "date-time"
+                        },
+                        "updated_at": {
+                          "type": "string",
+                          "format": "date-time"
+                        }
                       }
                     }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/members": {
-      "get": {
-        "summary": "Get Member Details",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "email",
-            "in": "path",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Member details",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "id": {
-                      "type": "string",
-                      "description": "Unique identifier of the member"
-                    },
-                    "email": {
-                      "type": "string",
-                      "description": "Email address of the member"
-                    },
-                    "first_name": {
-                      "type": "string",
-                      "description": "First name of the member"
-                    },
-                    "last_name": {
-                      "type": "string",
-                      "description": "Last name of the member"
-                    },
-                    "last_seen_at": {
-                      "type": "string",
-                      "format": "date-time",
-                      "description": "Timestamp when the member was last seen"
-                    },
-                    "created_at": {
-                      "type": "string",
-                      "format": "date-time",
-                      "description": "Timestamp when the member was created"
-                    },
-                    "updated_at": {
-                      "type": "string",
-                      "format": "date-time",
-                      "description": "Timestamp when the member was last updated"
-                    }
-                  }
+                  ]
                 }
               }
             }
@@ -168,21 +124,21 @@
         "parameters": [
           {
             "name": "id",
-            "in": "path",
+            "in": "query",
             "schema": {
               "type": "string"
             }
           },
           {
             "name": "email",
-            "in": "path",
+            "in": "query",
             "schema": {
               "type": "string"
             }
           },
           {
             "name": "suspend",
-            "in": "path",
+            "in": "query",
             "required": true,            
             "schema": {
               "type": "string",
@@ -243,21 +199,21 @@
         "parameters": [
           {
             "name": "id",
-            "in": "path",
+            "in": "query",
             "schema": {
               "type": "string"
             }
           },
           {
             "name": "email",
-            "in": "path",
+            "in": "query",
             "schema": {
               "type": "string"
             }
           },
           {
             "name": "ban",
-            "in": "path",
+            "in": "query",
             "required": true,            
             "schema": {
               "type": "string",
@@ -318,14 +274,14 @@
         "parameters": [
           {
             "name": "id",
-            "in": "path",
+            "in": "query",
             "schema": {
               "type": "string"
             }
           },
           {
             "name": "email",
-            "in": "path",
+            "in": "query",
             "schema": {
               "type": "string"
             }
@@ -366,14 +322,14 @@
         "parameters": [
           {
             "name": "id",
-            "in": "path"
+            "in": "query",
             "schema": {
               "type": "string"
             }
           },
           {
             "name": "email",
-            "in": "path"
+            "in": "query",
             "schema": {
               "type": "string"
             }
@@ -435,92 +391,94 @@
     },
     "/admins": {
       "get": {
-        "summary": "List Admins & Moderators",
-        "responses": {
-          "200": {
-            "description": "List of admins & moderators of your school",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "users": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "properties": {
-                          "id": { "type": "string" },
-                          "email": { "type": "string" },
-                          "first_name": { "type": "string" },
-                          "last_name": { "type": "string" },
-                          "role": { "type": "string" },
-                          "is_active": { "type": "boolean" },
-                          "is_banned": { "type": "boolean" },
-                          "time_zone": { "type": "string" },
-                          "last_seen_at": {
-                            "type": "string",
-                            "format": "date-time"
-                          },
-                          "created_at": {
-                            "type": "string",
-                            "format": "date-time"
-                          },
-                          "updated_at": {
-                            "type": "string",
-                            "format": "date-time"
-                          },
-                          "is_school_owner": { "type": "boolean" }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/admins": {
-      "get": {
-        "summary": "Get Admin/Moderator Details",
+        "summary": "List Admins & Moderators or Get Details",
+        "description": "Without id/email, returns the list of admins & moderators of your school. If id or email is provided, returns a single admin/moderator.",
         "parameters": [
           {
             "name": "id",
-            "in": "path"
+            "in": "query",
             "schema": {
               "type": "string"
-            }
+            },
+            "description": "If provided, returns the admin/moderator with this ID instead of a list."
           },
           {
             "name": "email",
-            "in": "path"
+            "in": "query",
             "schema": {
               "type": "string"
-            }
+            },
+            "description": "If provided (and id not given), returns the admin/moderator with this email instead of a list."
           }
         ],
         "responses": {
           "200": {
-            "description": "Admin/moderator details",
+            "description": "List of admins & moderators (when no id/email) or a single admin/moderator (when id/email provided).",
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "id": { "type": "string" },
-                    "email": { "type": "string" },
-                    "first_name": { "type": "string" },
-                    "last_name": { "type": "string" },
-                    "role": { "type": "string" },
-                    "is_active": { "type": "boolean" },
-                    "is_banned": { "type": "boolean" },
-                    "time_zone": { "type": "string" },
-                    "last_seen_at": { "type": "string", "format": "date-time" },
-                    "created_at": { "type": "string", "format": "date-time" },
-                    "updated_at": { "type": "string", "format": "date-time" },
-                    "is_school_owner": { "type": "boolean" }
-                  }
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "users": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": { "type": "string" },
+                              "email": { "type": "string" },
+                              "first_name": { "type": "string" },
+                              "last_name": { "type": "string" },
+                              "role": { "type": "string" },
+                              "is_active": { "type": "boolean" },
+                              "is_banned": { "type": "boolean" },
+                              "time_zone": { "type": "string" },
+                              "last_seen_at": {
+                                "type": "string",
+                                "format": "date-time"
+                              },
+                              "created_at": {
+                                "type": "string",
+                                "format": "date-time"
+                              },
+                              "updated_at": {
+                                "type": "string",
+                                "format": "date-time"
+                              },
+                              "is_school_owner": { "type": "boolean" }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "id": { "type": "string" },
+                        "email": { "type": "string" },
+                        "first_name": { "type": "string" },
+                        "last_name": { "type": "string" },
+                        "role": { "type": "string" },
+                        "is_active": { "type": "boolean" },
+                        "is_banned": { "type": "boolean" },
+                        "time_zone": { "type": "string" },
+                        "last_seen_at": {
+                          "type": "string",
+                          "format": "date-time"
+                        },
+                        "created_at": {
+                          "type": "string",
+                          "format": "date-time"
+                        },
+                        "updated_at": {
+                          "type": "string",
+                          "format": "date-time"
+                        },
+                        "is_school_owner": { "type": "boolean" }
+                      }
+                    }
+                  ]
                 }
               }
             }
