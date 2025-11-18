@@ -61,16 +61,17 @@
     {
       "group": "Members",
       "pages": [
-        "api-reference/endpoints/members/list",
         "api-reference/endpoints/members/get",
-        "api-reference/endpoints/members/accesses"
+        "api-reference/endpoints/members/accesses",
+        "api-reference/endpoints/members/set_suspend",
+        "api-reference/endpoints/members/set_ban",
+        "api-reference/endpoints/members/delete_member"
       ]
     },
     {
 
       "group": "Admins & Moderators",
       "pages": [
-        "api-reference/endpoints/admins/list",
         "api-reference/endpoints/admins/get"
       ]
     },
