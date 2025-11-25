@@ -541,7 +541,15 @@
                               "completed_steps": { "type": "integer", "description": "These are steps that are NOT optional" },
                               "completed_optional_steps": { "type": "integer" },
                               "progression_rate": { "type": "number" },
-                              "time_spent": { "type": "string" }
+                              "time_spent": { "type": "string" },
+                              "first_viewed_at": {
+                                "type": "string",
+                                "format": "date-time"
+                              },
+                              "last_viewed_at": {
+                                "type": "string",
+                                "format": "date-time"
+                              }
                             }
                           }
                         }
