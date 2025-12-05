@@ -613,7 +613,8 @@
                         "total_optional_steps": { "type": "integer" },
                         "completed_steps": { "type": "integer", "description": "These are steps that are NOT optional" },
                         "completed_optional_steps": { "type": "integer" },
-                        "progression_rate": { "type": "number" },
+                        "progression_rate": { "type": "number", "description": "Does not factor in optional steps." },
+                        "progression_rate_including_optional_steps": { "type": "number", "description": "Includes optional steps"  },
                         "time_spent": { "type": "string" }
                       }
                     }
