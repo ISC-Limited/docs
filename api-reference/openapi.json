@@ -1079,7 +1079,7 @@
                     "type": "array",
                     "items": {
                       "type": "string",
-                      "format": "email",
+                      "format": "email or ID",
                       "description": "Array of member email addresses or member IDs"
                     }
                   },
@@ -1087,7 +1087,7 @@
                     "type": "array",
                     "items": {
                       "type": "string",
-                      "format": "email",
+                      "format": "email or ID",
                       "description": "Array of user email addresses or user IDs"
                     }
                   }
