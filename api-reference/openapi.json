@@ -1117,6 +1117,81 @@
         }
       }
     },
+    "/conversations/groups/{id}/messages": {
+      "post": {
+        "summary": "Send a Conversation Message",
+        "description": "Sends a message from an admin or moderator account to an existing conversation group. If the user is not already a participant, they will be added to the conversation group.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "The ID of the conversation group",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "user_id": {
+                    "type": "string",
+                    "description": "The ID of the admin or moderator sending the message"
+                  },
+                  "message": {
+                    "type": "string",
+                    "description": "The message content"
+                  }
+                },
+                "required": ["user_id", "message"]
+              },
+              "example": {
+                "user_id": "058696d4-f2c8-472f-8c80-5e2208e9fcb1",
+                "message": "Hello, thanks for your message!"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Message sent successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "group_id": {
+                      "type": "string"
+                    },
+                    "user_id": {
+                      "type": "string"
+                    },
+                    "content": {
+                      "type": "string"
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "format": "date-time"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid request"
+          }
+        }
+      }
+    },
     "/webhooks": {
       "get": {
         "summary": "List Webhooks",

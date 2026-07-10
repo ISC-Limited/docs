@@ -102,7 +102,8 @@
     {
       "group": "Conversations",
       "pages": [
-        "api-reference/endpoints/conversations/groups/create"
+        "api-reference/endpoints/conversations/groups/create",
+        "api-reference/endpoints/conversations/groups/send_message"
       ]
     },
     {
