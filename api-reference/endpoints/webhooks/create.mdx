@@ -1,4 +1,5 @@
 ---
+title: "create"
 openapi: "post /webhooks"
 ---
 
@@ -7,12 +8,16 @@ Webhooks will allow you to detect when a specified event occurs. Supported event
 - `element_completed` → When a step is completed
 - `element_pending` → When a member submits an answer that needs to be corrected.
 - `member_joining_offer` →  When a member is added to an offer
-  - **extra_parameters**:
+  - **extra\_parameters**:
     - `offerFilter` → An offer ID or multiple offer IDs separated by commas. This event will only trigger if the member is added to an offer that matches the filter
 - `new_payment` → When a member initiates a new payment (whether it is on a one-time offer price, a multiple installment price, or a subscription)
 - `member_inactivity` → Will trigger at the same time as the member inactivity notification from SchoolMaker
 - `gamification_level_passed`  → Which will trigger when a level is passed in the community gamification feature
-  - **extra_parameters**:
+  - **extra\_parameters**:
     - `activeLevels` → A comma-separated list of level numbers. This event will only trigger if the member has passed a level that is in the list
+- `conversation_message_received` → When a User receives a new message in a conversation group
+  - **extra\_parameters**:
+    - `user_ids` → A list of User IDs. The event will only trigger when one of these Users receives the message. Leave empty to include all Users
+    - `author_types` → Use `members` or `users` to filter messages by author type. Leave empty to include messages from both Members and Users
 
 To see the payload for each event, please refer to the [Webhooks Payload](/api-reference/endpoints/webhooks/payload) page.

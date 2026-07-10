@@ -1222,7 +1222,7 @@
       },
       "post": {
         "summary": "Create a Webhook",
-        "description": "Create a webhook for events: `element_completed`, `member_joining_offer`, `new_payment`, `member_inactivity`, `gamification_level_passed` ",
+        "description": "Create a webhook for events: `element_completed`, `member_joining_offer`, `new_payment`, `member_inactivity`, `gamification_level_passed`, `conversation_message_received` ",
         "requestBody": {
           "required": true,
           "content": {
@@ -1243,7 +1243,8 @@
                       "member_joining_offer",
                       "new_payment",
                       "member_inactivity",
-                      "gamification_level_passed"
+                      "gamification_level_passed",
+                      "conversation_message_received"
                     ]
                   },
                   "provider": {
@@ -1265,6 +1266,21 @@
                         "items": {
                           "type": "integer"
                         }
+                      },
+                      "user_ids": {
+                        "type": "array",
+                        "description": "Only trigger when one of these users receives the conversation message. Leave empty for all users.",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "author_types": {
+                        "type": "string",
+                        "description": "Only trigger for messages sent by this participant type. Leave empty for both members and users.",
+                        "enum": [
+                          "members",
+                          "users"
+                        ]
                       }
                     }
                   }

@@ -209,3 +209,73 @@ All webhook notifications are sent as POST requests with the following character
   "level_unlocked": 0
 }
 ```
+
+### Conversation Message Received
+
+**Event Name:** `conversation_message_received` \\
+
+**Description:** Triggered when a User receives a new message in a conversation group.
+
+The `related_step` field is `null` when the conversation is not associated with a program step. The `participants_preview` field contains up to ten participants, and `recent_messages_preview` contains up to three messages sent before the current message. For system-generated messages, `author_type` and `author_name` may be `null`.
+
+**Payload Example:**
+
+```json
+{
+  "event_type": "conversation_message_received",
+  "message": {
+    "id": "string",
+    "content": "string",
+    "created_at": "string",
+    "author": {
+      "id": "string",
+      "type": "Member | User",
+      "name": "string",
+      "email": "string"
+    }
+  },
+  "received_by_users": [
+    {
+      "id": "string",
+      "type": "User",
+      "name": "string",
+      "email": "string"
+    }
+  ],
+  "conversation_group": {
+    "id": "string",
+    "title": "string",
+    "participants_count": 0,
+    "participants_preview": [
+      {
+        "id": "string",
+        "type": "Member | User",
+        "name": "string"
+      }
+    ],
+    "created_at": "string",
+    "last_activity_at": "string"
+  },
+  "related_step": {
+    "step_progress_id": "string",
+    "step_id": "string",
+    "step_name": "string",
+    "lesson_id": "string",
+    "lesson_name": "string",
+    "section_id": "string",
+    "section_name": "string",
+    "program_id": "string",
+    "program_name": "string"
+  },
+  "recent_messages_preview": [
+    {
+      "id": "string",
+      "author_type": "Member | User",
+      "author_name": "string",
+      "content": "string",
+      "created_at": "string"
+    }
+  ],
+  "url": "string"
+}
+```
