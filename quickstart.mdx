@@ -26,6 +26,7 @@ Start here if you want to use the SchoolMaker API to manage your members or trac
   <Info>
     When making an API call, you will need to add an Authorization header and set the API key as a Bearer token.
   </Info>
+
   Here’s an example Curl request (replace `YOUR_API_KEY` with your own API key):
 
   ```bash
@@ -59,7 +60,7 @@ The SchoolMaker API uses rate limits to manage request volumes and ensure fair u
 
 ## Base URL
 
-```
+```text
 https://schoolmaker.co/api/v1
 ```
 
@@ -93,9 +94,9 @@ Sometimes things go wrong. Here are some tips to help you debug your API request
 
   1. Dealing with “Not Authenticated” Codes:
      - Make sure you are using an API key from the SchoolMaker "Integrations & API" settings page and that you are including it in your requests.
-     - Your API key should be included in the “Authorization” header of your request, following the format “Authorization: Bearer YOUR_API_KEY”.
+     - Your API key should be included in the “Authorization” header of your request, following the format “Authorization: Bearer YOUR\_API\_KEY”.
   2. Authorization Header:
-     - Ensure that you are correctly including the “Authorization” header in your requests. The value of this header should follow the format “Bearer YOUR_API_KEY”.
+     - Ensure that you are correctly including the “Authorization” header in your requests. The value of this header should follow the format “Bearer YOUR\_API\_KEY”.
   3. Handling 400-level Responses:
      - 400-level responses typically indicate that there was a problem with the request. The response body will contain more information about what went wrong, so be sure to check it for details.
      - Check on your request type (GET, POST, PUT, DELETE) and ensure that you are using the correct one for the endpoint you are trying to access.
@@ -128,14 +129,24 @@ Sometimes things go wrong. Here are some tips to help you debug your API request
 The SchoolMaker API allows you to get information about your members:
 
 <CardGroup cols="2">
-  <Card title="Get member details" icon="user" href="https://docs.schoolmaker.com/api-reference/endpoints/members/list">
-    Get details from a member like their first name, last name, email, or creation date
-  </Card>
   <Card title="List members" icon="users" href="https://docs.schoolmaker.com/api-reference/endpoints/members/get">
     Get a list of your school's members. Note that this list has pagination
   </Card>
+
   <Card title="Get member offer accesses" icon="user-magnifying-glass" href="https://docs.schoolmaker.com/api-reference/endpoints/members/accesses">
     Get a detailed list of which offers a specific member has access to
+  </Card>
+
+  <Card title="Set Member Suspend Status" icon="user-times" href="https://docs.schoolmaker.com/api-reference/endpoints/members/set_suspend">
+    Change a member's suspension status.
+  </Card>
+
+  <Card title="Set Member Ban Status" icon="user-large-slash" href="https://docs.schoolmaker.com/api-reference/endpoints/members/set_ban">
+    Change a member's ban status.
+  </Card>
+
+  <Card title="Delete a member" icon="trash-alt" href="https://docs.schoolmaker.com/api-reference/endpoints/members/delete_member">
+    Delete a member from your school.
   </Card>
 </CardGroup>
 
@@ -147,6 +158,7 @@ The SchoolMaker API allows you to get information about admins & moderators in y
   <Card title="List admins & moderators" icon="user-shield" href="https://docs.schoolmaker.com/api-reference/endpoints/admins/list">
     Get a list of your school's admins and moderators, with details about each
   </Card>
+
   <Card title="Get admin or moderator details" icon="user-shield" href="https://docs.schoolmaker.com/api-reference/endpoints/admins/get">
     Get details from a specific admin or moderator from your school
   </Card>
@@ -160,15 +172,19 @@ Configure and list your school's offers:
   <Card title="List all offers" icon="boxes-stacked" href="https://docs.schoolmaker.com/api-reference/endpoints/offers/list">
     List all of your school's offers and get their names, descriptions & prices
   </Card>
+
   <Card title="Get offer details" icon="box-open-full" href="https://docs.schoolmaker.com/api-reference/endpoints/offers/get">
     Get details from a specific offer like its name, description, prices or creation date
   </Card>
+
   <Card title="Set offer details" icon="box" href="https://docs.schoolmaker.com/api-reference/endpoints/offers/update">
     Updates offer’s name, description, and publish status
   </Card>
+
   <Card title="Set a drip boost" icon="calendar-circle-plus" href="https://docs.schoolmaker.com/api-reference/endpoints/offers/set_drip_boost">
     Updates the drip boost value for a specific member in a specific offer
   </Card>
+
   <Card title="Set offer access for a member" icon="box-circle-check" href="https://docs.schoolmaker.com/api-reference/endpoints/offers/accesses/create">
     Change member access status for a specific offer in your school or add a new member
   </Card>
@@ -182,6 +198,7 @@ List school programs and get more information about specific programs and member
   <Card title="List programs" icon="graduation-cap" href="https://docs.schoolmaker.com/api-reference/endpoints/products/list">
     List all of your school's published programs with their IDs, names & descriptions
   </Card>
+
   <Card title="Get program details" icon="graduation-cap" href="https://docs.schoolmaker.com/api-reference/endpoints/products/get">
     Get details from a specific program and check specific member's progression for a program
   </Card>
@@ -195,6 +212,7 @@ Create coaching appointments and list coaching types:
   <Card title="Create a coaching appointment" icon="phone-plus" href="https://docs.schoolmaker.com/api-reference/endpoints/coachings/appointments/create">
     Create a coaching appointment, for example after a booking is created in Calendly
   </Card>
+
   <Card title="List coaching types" icon="phone" href="https://docs.schoolmaker.com/api-reference/endpoints/coachings/types/list">
     Get a list of all coaching types you have created in your school
   </Card>
@@ -228,13 +246,12 @@ Webhooks will allow you to detect when a specified event occurs. Supported event
 
 <CardGroup cols="3">
   <Card title="List webhooks" icon="webhook" href="https://docs.schoolmaker.com/api-reference/endpoints/webhooks/list">
-    
   </Card>
+
   <Card title="Create a webhook" icon="webhook" href="https://docs.schoolmaker.com/api-reference/endpoints/webhooks/create">
-    
   </Card>
+
   <Card title="Delete a Webhook" icon="webhook" href="https://docs.schoolmaker.com/api-reference/endpoints/webhooks/delete">
-    
   </Card>
 </CardGroup>
 
