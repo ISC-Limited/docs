@@ -1055,7 +1055,7 @@
     "/conversations/groups": {
       "post": {
         "summary": "Create a Conversation Group",
-        "description": "Creates a conversation and send a message to recipients.",
+        "description": "Creates a conversation group and sends its first message to the selected participants. The message can contain plain text or supported Markdown.",
         "requestBody": {
           "required": true,
           "content": {
@@ -1068,7 +1068,8 @@
                     "description": "The title is optional, by default it will just be the names of the participants"
                   },
                   "message": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The message to send. Accepts plain text or supported Markdown. Markdown is rendered as rich text in SchoolMaker. Existing plain-text messages remain supported.",
                   },
                   "sender_id": {
                     "type": "string",
@@ -1120,7 +1121,7 @@
     "/conversations/groups/{id}/messages": {
       "post": {
         "summary": "Send a Conversation Message",
-        "description": "Sends a message from an admin or moderator account to an existing conversation group. If the user is not already a participant, they will be added to the conversation group.",
+        "description": "Sends a message from an admin or moderator account to an existing conversation group. If the user is not already a participant, they will be added to the conversation group. The message can contain plain text or supported Markdown.",
         "parameters": [
           {
             "name": "id",
@@ -1145,7 +1146,7 @@
                   },
                   "message": {
                     "type": "string",
-                    "description": "The message content"
+                    "description": "The message to send. Accepts plain text or supported Markdown. Markdown is rendered as rich text in SchoolMaker. Existing plain-text messages remain supported."
                   }
                 },
                 "required": ["user_id", "message"]
