@@ -6,7 +6,11 @@ openapi: "post /webhooks"
 Webhooks will allow you to detect when a specified event occurs. Supported event types include:
 
 - `element_completed` → When a step is completed
+  - **extra\_parameters**:
+    - `step_type` → One or more step types. Leave empty to include all step types. Supported values are `basic`, `input_text`, `textarea`, `link`, `quiz`, `post`, `topic`, `milestone`, `file_upload`, and `form`
 - `element_pending` → When a member submits an answer that needs to be corrected.
+  - **extra\_parameters**:
+    - `step_type` → One or more step types. Leave empty to include all applicable step types. Supported values are `input_text`, `textarea`, `post`, `topic`, `milestone`, and `file_upload`
 - `member_joining_offer` →  When a member is added to an offer
   - **extra\_parameters**:
     - `offerFilter` → An offer ID or multiple offer IDs separated by commas. This event will only trigger if the member is added to an offer that matches the filter

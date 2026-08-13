@@ -29,6 +29,8 @@ All webhook notifications are sent as POST requests with the following character
 
 **Description:** Triggers when a member submits an answer that needs to be corrected.
 
+**Optional Step Type Filter:** Use `extra_parameters.step_type` to filter by `input_text`, `textarea`, `post`, `topic`, `milestone`, or `file_upload`. Leave empty to include all applicable step types.
+
 **Payload Example:**
 
 ```json
@@ -79,6 +81,8 @@ All webhook notifications are sent as POST requests with the following character
 **Event Name:** `element_completed` \\
 
 **Description:** Triggered when a member completes an element (step, lesson, section, etc.) in a course.
+
+**Optional Step Type Filter:** Use `extra_parameters.step_type` to filter by `basic`, `input_text`, `textarea`, `link`, `quiz`, `post`, `topic`, `milestone`, `file_upload`, or `form`. Leave empty to include all step types.
 
 **Payload Example:**
 

@@ -1069,7 +1069,7 @@
                   },
                   "message": {
                     "type": "string",
-                    "description": "The message to send. Accepts plain text or supported Markdown. Markdown is rendered as rich text in SchoolMaker. Existing plain-text messages remain supported.",
+                    "description": "The message to send. Accepts plain text or supported Markdown. Markdown is rendered as rich text in SchoolMaker. Existing plain-text messages remain supported."
                   },
                   "sender_id": {
                     "type": "string",
@@ -1223,7 +1223,7 @@
       },
       "post": {
         "summary": "Create a Webhook",
-        "description": "Create a webhook for events: `element_completed`, `member_joining_offer`, `new_payment`, `member_inactivity`, `gamification_level_passed`, `conversation_message_received` ",
+        "description": "Create a webhook for events: `element_completed`, `element_pending`, `member_joining_offer`, `new_payment`, `member_inactivity`, `gamification_level_passed`, `conversation_message_received`",
         "requestBody": {
           "required": true,
           "content": {
@@ -1254,6 +1254,25 @@
                   "extra_parameters": {
                     "type": "object",
                     "properties": {
+                      "step_type": {
+                        "type": "array",
+                        "description": "Only deliver element_completed or element_pending events matching one of these step types. Leave empty to include all applicable step types.",
+                        "items": {
+                          "type": "string",
+                          "enum": [
+                            "basic",
+                            "input_text",
+                            "textarea",
+                            "link",
+                            "quiz",
+                            "post",
+                            "topic",
+                            "milestone",
+                            "file_upload",
+                            "form"
+                          ]
+                        }
+                      },
                       "offerFilter": {
                         "type": "array",
                         "description": "List of offer IDs to filter `member_joining_offer` events",
