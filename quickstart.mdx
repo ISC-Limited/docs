@@ -66,13 +66,21 @@ https://schoolmaker.co/api/v1
 
 ## Response Format
 
-All responses are in JSON format. Successful responses will contain the requested data, while error responses will have this structure:
+All responses are in JSON format. Successful responses contain the requested data in the shape documented for that endpoint. Existing program and offer lists retain their `products` and `offers` envelopes, and member lists retain `members` and `pagination`. Paginated operations document `data`, `page` and `next_page`. Error responses generally have this structure:
 
 ```json
 {
   "error": "Error message or array of error messages"
 }
 ```
+
+Legacy offer updates can return field-keyed validation errors. Keep using each endpoint's documented response shape.
+
+## Request Format
+
+Send JSON with correctly typed booleans and numbers. Flat writable fields and nested `attributes` are supported where documented. Form-encoded and query values convert according to their schemas, including nested booleans and numbers. JSON strings such as `"false"` do not become booleans. Use JSON for explicit null and empty arrays.
+
+Generic operation requests and asynchronous copies are described in [Generic operations](/api-reference/generic-operations). Existing endpoint paths and school API credentials remain supported.
 
 ## HTTP Status Codes
 
