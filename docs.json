@@ -1,0 +1,244 @@
+{
+  "theme": "mint",
+  "name": "SchoolMaker API Documentation",
+  "colors": {
+    "primary": "#EF4444",
+    "light": "#EF5644",
+    "dark": "#EF4444"
+  },
+  "favicon": "/favicon.svg",
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg"
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "Support",
+        "href": "mailto:support@schoolmaker.co"
+      }
+    ],
+    "primary": {
+      "type": "button",
+      "label": "Website",
+      "href": "https://schoolmaker.com"
+    }
+  },
+  "footer": {
+    "socials": {
+      "x": "https://x.com/SchoolMakerApp",
+      "github": "https://github.com/ISC-Limited/docs",
+      "linkedin": "https://www.linkedin.com/company/69576456"
+    }
+  },
+  "navigation": {
+    "global": {
+      "anchors": [
+        {
+          "anchor": "Support Documentation",
+          "icon": "life-ring",
+          "href": "https://schoolmaker.helpscoutdocs.com/"
+        },
+        {
+          "anchor": "Blog",
+          "icon": "newspaper",
+          "href": "https://schoolmaker.com/blog"
+        },
+        {
+          "anchor": "Course creation guide",
+          "icon": "lightbulb",
+          "href": "https://www.schoolmaker.com/course-creation-guide"
+        },
+        {
+          "anchor": "Integrations",
+          "icon": "plug",
+          "href": "https://www.schoolmaker.com/integrations"
+        }
+      ]
+    },
+    "anchors": [
+      {
+        "anchor": "API Documentation",
+        "icon": "code",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": [
+              "quickstart"
+            ]
+          },
+          {
+            "group": "Programs",
+            "pages": [
+              "api-reference/endpoints/products/create",
+              "api-reference/endpoints/products/get",
+              "api-reference/endpoints/products/list",
+              "api-reference/endpoints/products/update",
+              "api-reference/endpoints/products/delete",
+              "api-reference/endpoints/products/duplicate"
+            ]
+          },
+          {
+            "group": "Sections",
+            "pages": [
+              "api-reference/endpoints/sections/create",
+              "api-reference/endpoints/sections/get",
+              "api-reference/endpoints/sections/list",
+              "api-reference/endpoints/sections/update",
+              "api-reference/endpoints/sections/delete",
+              "api-reference/endpoints/sections/duplicate"
+            ]
+          },
+          {
+            "group": "Section Groups",
+            "pages": [
+              "api-reference/endpoints/section-groups/create",
+              "api-reference/endpoints/section-groups/get",
+              "api-reference/endpoints/section-groups/list",
+              "api-reference/endpoints/section-groups/update",
+              "api-reference/endpoints/section-groups/delete"
+            ]
+          },
+          {
+            "group": "Lessons",
+            "pages": [
+              "api-reference/endpoints/lessons/create",
+              "api-reference/endpoints/lessons/get",
+              "api-reference/endpoints/lessons/list",
+              "api-reference/endpoints/lessons/update",
+              "api-reference/endpoints/lessons/delete",
+              "api-reference/endpoints/lessons/duplicate"
+            ]
+          },
+          {
+            "group": "Steps",
+            "pages": [
+              "api-reference/endpoints/steps/create",
+              "api-reference/endpoints/steps/get",
+              "api-reference/endpoints/steps/list",
+              "api-reference/endpoints/steps/update",
+              "api-reference/endpoints/steps/delete",
+              "api-reference/endpoints/steps/duplicate"
+            ]
+          },
+          {
+            "group": "Offers",
+            "pages": [
+              "api-reference/endpoints/offers/create",
+              "api-reference/endpoints/offers/get",
+              "api-reference/endpoints/offers/list",
+              "api-reference/endpoints/offers/update",
+              "api-reference/endpoints/offers/delete",
+              "api-reference/endpoints/offers/duplicate",
+              "api-reference/endpoints/offers/elements",
+              "api-reference/endpoints/offers/accesses/create",
+              "api-reference/endpoints/offers/set_drip_boost"
+            ]
+          },
+          {
+            "group": "Members",
+            "pages": [
+              "api-reference/endpoints/members/get",
+              "api-reference/endpoints/members/audit",
+              "api-reference/endpoints/members/audit_by_id",
+              "api-reference/endpoints/members/accesses",
+              "api-reference/endpoints/members/set_suspend",
+              "api-reference/endpoints/members/set_ban",
+              "api-reference/endpoints/members/delete_member"
+            ]
+          },
+          {
+            "group": "Admins & Moderators",
+            "pages": [
+              "api-reference/endpoints/admins/get"
+            ]
+          },
+          {
+            "group": "Conversations",
+            "pages": [
+              "api-reference/endpoints/conversations/groups/list",
+              "api-reference/endpoints/conversations/groups/messages",
+              "api-reference/endpoints/conversations/groups/create",
+              "api-reference/endpoints/conversations/groups/send_message"
+            ]
+          },
+          {
+            "group": "Community",
+            "pages": [
+              "api-reference/endpoints/community/create",
+              "api-reference/endpoints/community/get",
+              "api-reference/endpoints/community/list",
+              "api-reference/endpoints/community/categories",
+              "api-reference/endpoints/community/comments/create",
+              "api-reference/endpoints/community/comments/list"
+            ]
+          },
+          {
+            "group": "Consultations",
+            "pages": [
+              "api-reference/endpoints/consultations/create",
+              "api-reference/endpoints/consultations/get",
+              "api-reference/endpoints/consultations/list",
+              "api-reference/endpoints/consultations/update",
+              "api-reference/endpoints/consultations/categories",
+              "api-reference/endpoints/consultations/tags"
+            ]
+          },
+          {
+            "group": "Coachings",
+            "pages": [
+              "api-reference/endpoints/coachings/appointments/create",
+              "api-reference/endpoints/coachings/types/list"
+            ]
+          },
+          {
+            "group": "Testimonials",
+            "pages": [
+              "api-reference/endpoints/testimonials/list",
+              "api-reference/endpoints/testimonials/get"
+            ]
+          },
+          {
+            "group": "Badges",
+            "pages": [
+              "api-reference/endpoints/badges/create",
+              "api-reference/endpoints/badges/get",
+              "api-reference/endpoints/badges/list",
+              "api-reference/endpoints/badges/update",
+              "api-reference/endpoints/badges/award",
+              "api-reference/endpoints/badges/generate_image"
+            ]
+          },
+          {
+            "group": "Gamification",
+            "pages": [
+              "api-reference/endpoints/gamifications/leaderboards/list"
+            ]
+          },
+          {
+            "group": "Custom code",
+            "pages": [
+              "api-reference/endpoints/custom-code/get",
+              "api-reference/endpoints/custom-code/update"
+            ]
+          },
+          {
+            "group": "Background operations",
+            "pages": [
+              "api-reference/endpoints/operations/get"
+            ]
+          },
+          {
+            "group": "Webhooks",
+            "pages": [
+              "api-reference/endpoints/webhooks/list",
+              "api-reference/endpoints/webhooks/create",
+              "api-reference/endpoints/webhooks/delete",
+              "api-reference/endpoints/webhooks/payload"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
