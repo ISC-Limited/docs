@@ -24394,6 +24394,202 @@
           }
         ]
       }
+    },
+    "/conversations/messages/{id}": {
+      "get": {
+        "tags": [
+          "Conversations"
+        ],
+        "summary": "Get a Conversation Message",
+        "description": "Retrieves one message by its ID, with fresh attachment download URLs. Use message.id from the conversation_message_received webhook. The required user_id must identify a User in your school who still participates in the conversation. You can use a User ID from received_by_users. The authenticated school and owner must be active. The selected User has no additional role, active-status or ban-status restriction, matching existing history reads. Reading does not join a conversation or mark messages as read. Attachment links are generated with a six-day lifetime and work without a SchoolMaker login. Deleted messages return no attachments; links issued before deletion remain usable until expiration.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Message ID from message.id in the webhook.",
+            "schema": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          {
+            "name": "user_id",
+            "in": "query",
+            "required": true,
+            "description": "Required ID of the user whose conversation history to retrieve. The user must belong to your school.",
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 255,
+              "pattern": "\\S"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The message with fresh attachment download URLs.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "id",
+                    "group_id",
+                    "content",
+                    "created_at",
+                    "attachments"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "group_id": {
+                      "type": "string"
+                    },
+                    "content": {
+                      "type": "string",
+                      "description": "Plain-text message content. Deleted messages return localized deletion text."
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "attachments": {
+                      "type": "array",
+                      "description": "Files attached to this message. Empty for text-only or deleted messages. Each request generates fresh URLs.",
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "filename",
+                          "content_type",
+                          "byte_size",
+                          "url",
+                          "url_expires_at"
+                        ],
+                        "properties": {
+                          "filename": {
+                            "type": "string"
+                          },
+                          "content_type": {
+                            "type": "string",
+                            "nullable": true
+                          },
+                          "byte_size": {
+                            "type": "integer",
+                            "minimum": 0
+                          },
+                          "url": {
+                            "type": "string",
+                            "format": "uri",
+                            "description": "Temporary storage download URL that works without a SchoolMaker login. Keep this private."
+                          },
+                          "url_expires_at": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "Expiration time of the URL, generated with a six-day lifetime. Retrieve the message again to obtain a fresh URL."
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "with_attachment": {
+                    "value": {
+                      "id": "927bad5c-af46-4a11-96bc-7a942870d481",
+                      "group_id": "49f3f9bc-43b5-4a40-b2ac-ea2c8a7cb99d",
+                      "content": "Please review my answer: answer.png",
+                      "created_at": "2026-10-05T09:00:00Z",
+                      "attachments": [
+                        {
+                          "filename": "answer.png",
+                          "content_type": "image/png",
+                          "byte_size": 12034,
+                          "url": "https://example.com/files/answer.png?signature=example",
+                          "url_expires_at": "2026-10-11T09:00:00Z"
+                        }
+                      ]
+                    }
+                  },
+                  "without_attachments": {
+                    "value": {
+                      "id": "927bad5c-af46-4a11-96bc-7a942870d481",
+                      "group_id": "49f3f9bc-43b5-4a40-b2ac-ea2c8a7cb99d",
+                      "content": "Thanks for your message.",
+                      "created_at": "2026-10-05T09:00:00Z",
+                      "attachments": []
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid credentials, or an unavailable authenticated school or owner.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Access denied"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Message or school User not found, or the selected User does not participate in this conversation. Member IDs cannot select history.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Record not found"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Missing, blank or structured user_id.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error"
+                  ],
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Invalid arguments:  required"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {

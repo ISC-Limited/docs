@@ -158,6 +158,7 @@
             "pages": [
               "api-reference/endpoints/conversations/groups/list",
               "api-reference/endpoints/conversations/groups/messages",
+              "api-reference/endpoints/conversations/messages/get",
               "api-reference/endpoints/conversations/groups/create",
               "api-reference/endpoints/conversations/groups/send_message"
             ]

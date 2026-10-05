@@ -222,6 +222,10 @@ All webhook notifications are sent as POST requests with the following character
 
 The `related_step` field is `null` when the conversation is not associated with a program step. The `participants_preview` field contains up to ten participants, and `recent_messages_preview` contains up to three messages sent before the current message. For system-generated messages, `author_type` and `author_name` may be `null`.
 
+The `message.attachments` array contains each attached file's `filename`, `content_type`, `byte_size`, `url` and `url_expires_at`. The URLs work without a SchoolMaker login and are generated with a six-day lifetime. Keep these private links secure. Messages without files and deleted messages have an empty attachment array. Attachments belong to the current message, not `recent_messages_preview`.
+
+To retrieve this message with fresh attachment URLs, use [Get a Conversation Message](/api-reference/endpoints/conversations/messages/get) with `message.id` and a `user_id` from `received_by_users`. The selected User must still participate in the conversation, and the authenticated school and owner must be active. Reading does not join the conversation or mark messages as read. Deleted messages return no attachments. Links issued before deletion remain usable until expiration.
+
 **Payload Example:**
 
 ```json
@@ -236,7 +240,16 @@ The `related_step` field is `null` when the conversation is not associated with 
       "type": "Member | User",
       "name": "string",
       "email": "string"
-    }
+    },
+    "attachments": [
+      {
+        "filename": "answer.png",
+        "content_type": "image/png",
+        "byte_size": 12034,
+        "url": "https://example.com/files/answer.png?signature=example",
+        "url_expires_at": "2026-10-11T09:00:00Z"
+      }
+    ]
   },
   "received_by_users": [
     {
