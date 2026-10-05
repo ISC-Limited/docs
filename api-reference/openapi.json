@@ -20602,7 +20602,7 @@
                       "id": "BADGE_ID",
                       "name": "First milestone",
                       "image_type": "emoji",
-                      "emoji": "\ud83c\udfc6",
+                      "emoji": "🏆",
                       "image_url": null
                     }
                   ],
@@ -20703,7 +20703,7 @@
           "Badges"
         ],
         "summary": "Create a Badge",
-        "description": "Creates a badge with a unique name. New badges use the \ud83c\udfc6 emoji by default.",
+        "description": "Creates a badge with a unique name. New badges use the 🏆 emoji by default.",
         "responses": {
           "200": {
             "description": "Successful response.",
@@ -20748,7 +20748,7 @@
                   "id": "BADGE_ID",
                   "name": "First milestone",
                   "image_type": "emoji",
-                  "emoji": "\ud83c\udfc6",
+                  "emoji": "🏆",
                   "image_url": null
                 }
               }
@@ -20846,7 +20846,7 @@
                       "emoji": {
                         "type": "string",
                         "maxLength": 10000,
-                        "description": "Badge emoji, defaulting to \ud83c\udfc6. Cannot be null or blank in emoji mode."
+                        "description": "Badge emoji, defaulting to 🏆. Cannot be null or blank in emoji mode."
                       }
                     },
                     "required": [
@@ -20883,7 +20883,7 @@
                           "emoji": {
                             "type": "string",
                             "maxLength": 10000,
-                            "description": "Badge emoji, defaulting to \ud83c\udfc6. Cannot be null or blank in emoji mode."
+                            "description": "Badge emoji, defaulting to 🏆. Cannot be null or blank in emoji mode."
                           }
                         },
                         "required": [
@@ -20924,7 +20924,7 @@
                       "emoji": {
                         "type": "string",
                         "maxLength": 10000,
-                        "description": "Badge emoji, defaulting to \ud83c\udfc6. Cannot be null or blank in emoji mode."
+                        "description": "Badge emoji, defaulting to 🏆. Cannot be null or blank in emoji mode."
                       }
                     },
                     "required": [
@@ -20961,7 +20961,7 @@
                           "emoji": {
                             "type": "string",
                             "maxLength": 10000,
-                            "description": "Badge emoji, defaulting to \ud83c\udfc6. Cannot be null or blank in emoji mode."
+                            "description": "Badge emoji, defaulting to 🏆. Cannot be null or blank in emoji mode."
                           }
                         },
                         "required": [
@@ -21031,7 +21031,7 @@
                   "id": "BADGE_ID",
                   "name": "First milestone",
                   "image_type": "emoji",
-                  "emoji": "\ud83c\udfc6",
+                  "emoji": "🏆",
                   "image_url": null
                 }
               }
@@ -21195,7 +21195,7 @@
                   "id": "BADGE_ID",
                   "name": "Completed milestone",
                   "image_type": "emoji",
-                  "emoji": "\ud83c\udfc6",
+                  "emoji": "🏆",
                   "image_url": null
                 }
               }
@@ -21324,7 +21324,7 @@
                       "emoji": {
                         "type": "string",
                         "maxLength": 10000,
-                        "description": "Badge emoji, defaulting to \ud83c\udfc6. Cannot be null or blank in emoji mode."
+                        "description": "Badge emoji, defaulting to 🏆. Cannot be null or blank in emoji mode."
                       }
                     }
                   },
@@ -21358,7 +21358,7 @@
                           "emoji": {
                             "type": "string",
                             "maxLength": 10000,
-                            "description": "Badge emoji, defaulting to \ud83c\udfc6. Cannot be null or blank in emoji mode."
+                            "description": "Badge emoji, defaulting to 🏆. Cannot be null or blank in emoji mode."
                           }
                         }
                       }
@@ -21396,7 +21396,7 @@
                       "emoji": {
                         "type": "string",
                         "maxLength": 10000,
-                        "description": "Badge emoji, defaulting to \ud83c\udfc6. Cannot be null or blank in emoji mode."
+                        "description": "Badge emoji, defaulting to 🏆. Cannot be null or blank in emoji mode."
                       }
                     }
                   },
@@ -21430,7 +21430,7 @@
                           "emoji": {
                             "type": "string",
                             "maxLength": 10000,
-                            "description": "Badge emoji, defaulting to \ud83c\udfc6. Cannot be null or blank in emoji mode."
+                            "description": "Badge emoji, defaulting to 🏆. Cannot be null or blank in emoji mode."
                           }
                         }
                       }
@@ -22755,6 +22755,1644 @@
             }
           }
         }
+      }
+    },
+    "/section_groups": {
+      "get": {
+        "tags": [
+          "Section Groups"
+        ],
+        "summary": "List Section Groups",
+        "description": "Retrieves the section groups in a program, ordered by position.",
+        "responses": {
+          "200": {
+            "description": "Successful operation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "maxItems": 30,
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "product_id": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "position": {
+                            "type": "integer"
+                          }
+                        }
+                      }
+                    },
+                    "page": {
+                      "type": "integer"
+                    },
+                    "next_page": {
+                      "type": "integer",
+                      "nullable": true
+                    }
+                  }
+                },
+                "example": {
+                  "data": [
+                    {
+                      "id": "GROUP_ID",
+                      "product_id": "PROGRAM_ID",
+                      "name": "Getting started",
+                      "position": 1
+                    }
+                  ],
+                  "page": 1,
+                  "next_page": null
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Access denied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "oneOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Access denied"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "You do not have permission to perform this action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "oneOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                "example": {
+                  "error": "You do not have permission to perform this action"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Record not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "oneOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Record not found"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid arguments",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "oneOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Invalid arguments"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "oneOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Too many requests"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 10000
+            }
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 30
+            }
+          },
+          {
+            "name": "query",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "maxLength": 10000
+            }
+          },
+          {
+            "name": "program_id",
+            "in": "query",
+            "required": false,
+            "description": "Parent program ID. Supply program_id or its product_id alias.",
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 255,
+              "description": "Program ID. You need edit access to create a group. Creating a group does not turn on grouped display for the program."
+            }
+          },
+          {
+            "name": "product_id",
+            "in": "query",
+            "required": false,
+            "description": "Parent program ID. Supply program_id or its product_id alias.",
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 255,
+              "description": "Program ID. You need edit access to create a group. Creating a group does not turn on grouped display for the program."
+            }
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "Section Groups"
+        ],
+        "summary": "Create a Section Group",
+        "description": "Creates an empty section group in a program.",
+        "responses": {
+          "200": {
+            "description": "Successful operation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "product_id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "position": {
+                      "type": "integer"
+                    }
+                  }
+                },
+                "example": {
+                  "id": "GROUP_ID",
+                  "product_id": "PROGRAM_ID",
+                  "name": "Getting started",
+                  "position": 1
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Access denied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "oneOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Access denied"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "You do not have permission to perform this action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "oneOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                "example": {
+                  "error": "You do not have permission to perform this action"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Record not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "oneOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Record not found"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid arguments",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "oneOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Invalid arguments"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "oneOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Too many requests"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                      "name": {
+                        "type": "string",
+                        "maxLength": 100,
+                        "description": "Group title, up to 100 characters. Defaults to the school language's standard group name. Send null or an empty string to restore this name.",
+                        "nullable": true
+                      },
+                      "position": {
+                        "type": "integer",
+                        "minimum": 1,
+                        "description": "Position within the program, starting at 1. Defaults to the end on creation. Moving a group shifts the other groups. Must fit the number of groups in the program. Null is not accepted."
+                      },
+                      "program_id": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 255,
+                        "description": "Program ID. You need edit access to create a group. Creating a group does not turn on grouped display for the program."
+                      },
+                      "product_id": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 255,
+                        "description": "Program ID. You need edit access to create a group. Creating a group does not turn on grouped display for the program."
+                      }
+                    },
+                    "anyOf": [
+                      {
+                        "required": [
+                          "program_id"
+                        ]
+                      },
+                      {
+                        "required": [
+                          "product_id"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                      "attributes": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "maxLength": 100,
+                            "description": "Group title, up to 100 characters. Defaults to the school language's standard group name. Send null or an empty string to restore this name.",
+                            "nullable": true
+                          },
+                          "position": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "description": "Position within the program, starting at 1. Defaults to the end on creation. Moving a group shifts the other groups. Must fit the number of groups in the program. Null is not accepted."
+                          }
+                        }
+                      },
+                      "program_id": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 255,
+                        "description": "Program ID. You need edit access to create a group. Creating a group does not turn on grouped display for the program."
+                      },
+                      "product_id": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 255,
+                        "description": "Program ID. You need edit access to create a group. Creating a group does not turn on grouped display for the program."
+                      }
+                    },
+                    "required": [
+                      "attributes"
+                    ],
+                    "anyOf": [
+                      {
+                        "required": [
+                          "program_id"
+                        ]
+                      },
+                      {
+                        "required": [
+                          "product_id"
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              "examples": {
+                "flat": {
+                  "value": {
+                    "program_id": "PROGRAM_ID",
+                    "name": "Getting started",
+                    "position": 1
+                  }
+                },
+                "nested": {
+                  "value": {
+                    "program_id": "PROGRAM_ID",
+                    "attributes": {
+                      "name": "Getting started",
+                      "position": 1
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/section_groups/{id}": {
+      "get": {
+        "tags": [
+          "Section Groups"
+        ],
+        "summary": "Get Section Group Details",
+        "description": "Retrieves details from a specific section group.",
+        "responses": {
+          "200": {
+            "description": "Successful operation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "product_id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "position": {
+                      "type": "integer"
+                    }
+                  }
+                },
+                "example": {
+                  "id": "GROUP_ID",
+                  "product_id": "PROGRAM_ID",
+                  "name": "Getting started",
+                  "position": 1
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Access denied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "oneOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Access denied"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "You do not have permission to perform this action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "oneOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                "example": {
+                  "error": "You do not have permission to perform this action"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Record not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "oneOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Record not found"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid arguments",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "oneOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Invalid arguments"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "oneOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Too many requests"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 255
+            }
+          }
+        ]
+      },
+      "patch": {
+        "tags": [
+          "Section Groups"
+        ],
+        "summary": "Set Section Group Details",
+        "description": "Updates a section group's name or position.",
+        "responses": {
+          "200": {
+            "description": "Successful operation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "product_id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "position": {
+                      "type": "integer"
+                    }
+                  }
+                },
+                "example": {
+                  "id": "GROUP_ID",
+                  "product_id": "PROGRAM_ID",
+                  "name": "Getting started",
+                  "position": 1
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Access denied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "oneOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Access denied"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "You do not have permission to perform this action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "oneOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                "example": {
+                  "error": "You do not have permission to perform this action"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Record not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "oneOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Record not found"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid arguments",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "oneOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Invalid arguments"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "oneOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Too many requests"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 255
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                      "name": {
+                        "type": "string",
+                        "maxLength": 100,
+                        "description": "Group title, up to 100 characters. Defaults to the school language's standard group name. Send null or an empty string to restore this name.",
+                        "nullable": true
+                      },
+                      "position": {
+                        "type": "integer",
+                        "minimum": 1,
+                        "description": "Position within the program, starting at 1. Defaults to the end on creation. Moving a group shifts the other groups. Must fit the number of groups in the program. Null is not accepted."
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                      "attributes": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "maxLength": 100,
+                            "description": "Group title, up to 100 characters. Defaults to the school language's standard group name. Send null or an empty string to restore this name.",
+                            "nullable": true
+                          },
+                          "position": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "description": "Position within the program, starting at 1. Defaults to the end on creation. Moving a group shifts the other groups. Must fit the number of groups in the program. Null is not accepted."
+                          }
+                        }
+                      }
+                    },
+                    "required": [
+                      "attributes"
+                    ]
+                  }
+                ]
+              },
+              "examples": {
+                "flat": {
+                  "value": {
+                    "name": "Getting started",
+                    "position": 1
+                  }
+                },
+                "nested": {
+                  "value": {
+                    "attributes": {
+                      "name": "Getting started",
+                      "position": 1
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Section Groups"
+        ],
+        "summary": "Delete a Section Group",
+        "description": "Permanently deletes a section group and moves its sections to Trash. The last group cannot be deleted. Move sections out first if you want to keep them active.",
+        "responses": {
+          "200": {
+            "description": "Successful operation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "deleted": {
+                      "type": "boolean"
+                    },
+                    "group_permanently_deleted": {
+                      "type": "boolean"
+                    },
+                    "sections_soft_deleted": {
+                      "type": "integer"
+                    }
+                  }
+                },
+                "example": {
+                  "id": "GROUP_ID",
+                  "deleted": true,
+                  "group_permanently_deleted": true,
+                  "sections_soft_deleted": 2
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Access denied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "oneOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Access denied"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "You do not have permission to perform this action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "oneOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                "example": {
+                  "error": "You do not have permission to perform this action"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Record not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "oneOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Record not found"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid arguments",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "oneOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Invalid arguments"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "oneOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Too many requests"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 255
+            }
+          }
+        ]
+      }
+    },
+    "/consultations/categories": {
+      "get": {
+        "tags": [
+          "Consultations"
+        ],
+        "summary": "List Consultation Categories",
+        "description": "Retrieves consultation categories. Use a published category when creating or updating a question.",
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "data",
+                    "page",
+                    "next_page"
+                  ],
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "maxItems": 30,
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "id",
+                          "name",
+                          "is_published"
+                        ],
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "is_published": {
+                            "type": "boolean"
+                          }
+                        }
+                      }
+                    },
+                    "page": {
+                      "type": "integer",
+                      "minimum": 1
+                    },
+                    "next_page": {
+                      "type": "integer",
+                      "nullable": true
+                    }
+                  }
+                },
+                "example": {
+                  "data": [
+                    {
+                      "id": "CATEGORY_ID",
+                      "name": "General",
+                      "is_published": true
+                    }
+                  ],
+                  "page": 1,
+                  "next_page": null
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API credentials, or unavailable school account.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error"
+                  ],
+                  "properties": {
+                    "error": {
+                      "oneOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Access denied"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Permission denied.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error"
+                  ],
+                  "properties": {
+                    "error": {
+                      "oneOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                "example": {
+                  "error": "You do not have permission to perform this action"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Missing or inaccessible record.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error"
+                  ],
+                  "properties": {
+                    "error": {
+                      "oneOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Record not found"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid parameters or question details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error"
+                  ],
+                  "properties": {
+                    "error": {
+                      "oneOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Invalid arguments: /attributes/is_ready boolean"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 10000,
+              "default": 1
+            },
+            "example": 1
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 30,
+              "default": 30
+            },
+            "example": 30
+          }
+        ]
+      }
+    },
+    "/consultations/tags": {
+      "get": {
+        "tags": [
+          "Consultations"
+        ],
+        "summary": "List Consultation Tags",
+        "description": "Retrieves existing consultation tags, ordered by position. Use their IDs when creating or updating a question.",
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "data",
+                    "page",
+                    "next_page"
+                  ],
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "maxItems": 30,
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "id",
+                          "name"
+                        ],
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "page": {
+                      "type": "integer",
+                      "minimum": 1
+                    },
+                    "next_page": {
+                      "type": "integer",
+                      "nullable": true
+                    }
+                  }
+                },
+                "example": {
+                  "data": [
+                    {
+                      "id": "TAG_ID",
+                      "name": "Planning"
+                    }
+                  ],
+                  "page": 1,
+                  "next_page": null
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API credentials, or unavailable school account.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error"
+                  ],
+                  "properties": {
+                    "error": {
+                      "oneOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Access denied"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Permission denied.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error"
+                  ],
+                  "properties": {
+                    "error": {
+                      "oneOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                "example": {
+                  "error": "You do not have permission to perform this action"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Missing or inaccessible record.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error"
+                  ],
+                  "properties": {
+                    "error": {
+                      "oneOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Record not found"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid parameters or question details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "error"
+                  ],
+                  "properties": {
+                    "error": {
+                      "oneOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                "example": {
+                  "error": "Invalid arguments: /attributes/is_ready boolean"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 10000,
+              "default": 1
+            },
+            "example": 1
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 30,
+              "default": 30
+            },
+            "example": 30
+          }
+        ]
       }
     }
   },
