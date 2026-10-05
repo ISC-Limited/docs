@@ -24401,7 +24401,7 @@
           "Conversations"
         ],
         "summary": "Get a Conversation Message",
-        "description": "Retrieves one message by its ID, with fresh attachment download URLs. Use message.id from the conversation_message_received webhook. The required user_id must identify a User in your school who still participates in the conversation. You can use a User ID from received_by_users. The authenticated school and owner must be active. The selected User has no additional role, active-status or ban-status restriction, matching existing history reads. Reading does not join a conversation or mark messages as read. Attachment links are generated with a six-day lifetime and work without a SchoolMaker login. Deleted messages return no attachments; links issued before deletion remain usable until expiration.",
+        "description": "Retrieves a specific conversation message, including fresh attachment download URLs.",
         "parameters": [
           {
             "name": "id",
@@ -24417,7 +24417,7 @@
             "name": "user_id",
             "in": "query",
             "required": true,
-            "description": "Required ID of the user whose conversation history to retrieve. The user must belong to your school.",
+            "description": "Required ID of a User in your school who participates in this conversation. You can use an ID from received_by_users in the webhook.",
             "schema": {
               "type": "string",
               "minLength": 1,
@@ -24428,7 +24428,7 @@
         ],
         "responses": {
           "200": {
-            "description": "The message with fresh attachment download URLs.",
+            "description": "The message with fresh attachment download URLs. Reading does not mark it as read.",
             "content": {
               "application/json": {
                 "schema": {
@@ -24457,7 +24457,7 @@
                     },
                     "attachments": {
                       "type": "array",
-                      "description": "Files attached to this message. Empty for text-only or deleted messages. Each request generates fresh URLs.",
+                      "description": "Files attached to this message. Empty for text-only or deleted messages. Each request generates fresh URLs. Links issued before deletion remain usable until expiration.",
                       "items": {
                         "type": "object",
                         "required": [
